@@ -1,0 +1,207 @@
+/* Базовые настройки */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #29B6F6; /* Голубой цвет Hololive */
+    --bg: #f4f6f8;
+    --text: #333;
+    --card-bg: #fff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Шапка */
+.hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 24px;
+    margin: 0 15px;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    color: var(--primary);
+}
+
+/* Секции */
+.section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Игры */
+.games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-card {
+    background: var(--card-bg);
+    padding: 15px 30px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: default;
+}
+
+.game-card:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Витуберы (Сетка) */
+.vtuber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.vtuber-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.vtuber-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(41, 182, 246, 0.3);
+}
+
+.vtuber-img-wrapper {
+    height: 350px;
+    overflow: hidden;
+}
+
+.vtuber-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.vtuber-card:hover img {
+    transform: scale(1.05);
+}
+
+.vtuber-info {
+    padding: 20px;
+    text-align: center;
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+
+.vtuber-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.vtuber-info span {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Модальное окно */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.8); 
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #000;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 соотношение */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 0.8rem;
+}
