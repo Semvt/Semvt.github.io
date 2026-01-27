@@ -1,10 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Мой сайт</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Мир | Игры и VTubers</title>
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Иконки FontAwesome (для соцсетей) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Привет! Это мой первый сайт на GitHub.</h1>
-    <p>Здесь я буду выкладывать свои проекты.</p>
+
+    <!-- Шапка профиля -->
+    <header class="hero">
+        <div class="profile-container">
+            <!-- Замените ссылку ниже на свою аватарку -->
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+            <h1>Ваш Никнейм</h1>
+            <p>Геймер, фанат VTubers и разработчик</p>
+            
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-steam"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Секция любимых игр -->
+        <section class="section games-section">
+            <h2><i class="fas fa-gamepad"></i> Любимые игры</h2>
+            <div class="games-grid">
+                <div class="game-card">Minecraft</div>
+                <div class="game-card">Genshin Impact</div>
+                <div class="game-card">Elden Ring</div>
+                <div class="game-card">Valorant</div>
+            </div>
+        </section>
+
+        <!-- Секция VTubers (Hololive Style) -->
+        <section class="section vtubers-section">
+            <h2><i class="fas fa-tv"></i> Любимые Витуберы</h2>
+            <p class="subtitle">Нажми на карточку, чтобы посмотреть видео</p>
+            
+            <div class="vtuber-grid">
+                <!-- Карточка 1 -->
+                <!-- В data-video вставляем ID видео с YouTube (например, dQw4w9WgXcQ) -->
+                <div class="vtuber-card" data-video="Q-X6T2yRjCk">
+                    <div class="vtuber-img-wrapper">
+                        <!-- Замените src на картинку витубера -->
+                        <img src="https://via.placeholder.com/300x400/29B6F6/ffffff?text=Gura" alt="Gawr Gura">
+                    </div>
+                    <div class="vtuber-info">
+                        <h3>Gawr Gura</h3>
+                        <span>Hololive EN</span>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="vtuber-card" data-video="I-3c1a9cBs0">
+                    <div class="vtuber-img-wrapper">
+                        <img src="https://via.placeholder.com/300x400/FF8A80/ffffff?text=Marine" alt="Houshou Marine">
+                    </div>
+                    <div class="vtuber-info">
+                        <h3>Houshou Marine</h3>
+                        <span>Hololive JP</span>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="vtuber-card" data-video="vQHVGXdcqEQ">
+                    <div class="vtuber-img-wrapper">
+                        <img src="https://via.placeholder.com/300x400/BA68C8/ffffff?text=Ina" alt="Ninomae Ina'nis">
+                    </div>
+                    <div class="vtuber-info">
+                        <h3>Ninomae Ina'nis</h3>
+                        <span>Hololive EN</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Сделано для GitHub Pages &bull; 2024</p>
+    </footer>
+
+    <!-- Модальное окно для видео -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="video-wrapper">
+                <iframe id="youtubeFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем скрипт -->
+    <script src="script.js"></script>
 </body>
 </html>
