@@ -1,157 +1,223 @@
-/* Базовые настройки */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Import Noto Sans Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
 
 :root {
-    --primary: #29B6F6; /* Голубой цвет Hololive */
-    --bg: #f4f6f8;
+    --primary: #29B6F6; /* Hololive Light Blue */
+    --bg: #f0f4f8;      /* Very light grey/blue background */
     --text: #333;
-    --card-bg: #fff;
+    --panel-bg: #ffffff;
 }
 
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans', sans-serif; /* Applied everywhere */
     background-color: var(--bg);
     color: var(--text);
 }
 
-/* Шапка */
+/* Header */
 .hero {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
+    background: #fff;
+    color: #333;
     text-align: center;
     padding: 60px 20px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-bottom: 4px solid var(--primary); /* Blue line like Hololive site */
 }
 
 .avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 5px solid white;
+    border: 4px solid var(--primary);
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.social-links {
-    margin-top: 20px;
+.hero h1 {
+    font-weight: 700;
+    margin: 10px 0;
 }
 
 .social-links a {
-    color: white;
+    color: #555;
     font-size: 24px;
     margin: 0 15px;
-    transition: transform 0.3s;
+    transition: 0.3s;
     display: inline-block;
 }
 
 .social-links a:hover {
-    transform: scale(1.2);
     color: var(--primary);
 }
 
-/* Секции */
+/* Sections */
 .section {
-    max-width: 1200px;
+    max-width: 900px; /* Made narrower for better list view */
     margin: 50px auto;
     padding: 0 20px;
 }
 
 h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-weight: 700;
     color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .subtitle {
     text-align: center;
-    color: #666;
-    margin-bottom: 40px;
+    color: #888;
+    margin-bottom: 30px;
 }
 
-/* Игры */
+/* Games Grid (Small buttons) */
 .games-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .game-card {
-    background: var(--card-bg);
-    padding: 15px 30px;
-    border-radius: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    font-weight: 600;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-weight: 700;
     transition: 0.3s;
-    cursor: default;
 }
 
 .game-card:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-5px);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
 }
 
-/* Витуберы (Сетка) */
-.vtuber-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+/* --- VTuber Panels (Hololive Style) --- */
+.vtuber-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.vtuber-card {
-    background: var(--card-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    cursor: pointer;
+.vtuber-panel {
+    background: white;
+    display: flex; /* Horizontal layout */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
     position: relative;
-}
-
-.vtuber-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(41, 182, 246, 0.3);
-}
-
-.vtuber-img-wrapper {
-    height: 350px;
+    cursor: pointer;
     overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    min-height: 120px; /* Height of the panel */
+}
+
+.vtuber-panel:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(41, 182, 246, 0.2);
+}
+
+/* Decorative Triangles */
+.panel-decor-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid var(--primary);
+    border-right: 20px solid transparent;
+}
+
+.panel-decor-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0; 
+    height: 0; 
+    border-bottom: 20px solid var(--primary);
+    border-left: 20px solid transparent;
+}
+
+/* Image on the left */
+.vtuber-img-wrapper {
+    width: 140px;
+    height: 100%;
+    flex-shrink: 0;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .vtuber-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
+    object-fit: cover; /* Change to 'contain' if you want full anime body without cropping */
 }
 
-.vtuber-card:hover img {
-    transform: scale(1.05);
-}
-
+/* Info in the middle */
 .vtuber-info {
-    padding: 20px;
-    text-align: center;
-    background: white;
-    position: relative;
-    z-index: 2;
+    flex-grow: 1;
+    padding: 0 20px;
+    text-align: left;
 }
 
 .vtuber-info h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: #333;
 }
 
-.vtuber-info span {
-    color: #888;
+.group-name {
+    color: #999;
     font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-/* Модальное окно */
+/* Action/Button on the right */
+.vtuber-action {
+    padding-right: 30px;
+    color: var(--primary);
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vtuber-action i {
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .vtuber-panel {
+        flex-direction: column; /* Stack vertically on phones */
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    
+    .vtuber-img-wrapper {
+        width: 100%;
+        height: 200px;
+    }
+
+    .vtuber-info {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .vtuber-action {
+        padding: 0;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+/* Modal styles (Video) */
 .modal {
     display: none; 
     position: fixed; 
@@ -167,9 +233,8 @@ h2 {
 
 .modal-content {
     background-color: #000;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
-    border-radius: 10px;
     position: relative;
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
@@ -180,13 +245,12 @@ h2 {
     right: 0;
     color: white;
     font-size: 40px;
-    font-weight: bold;
     cursor: pointer;
 }
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 соотношение */
+    padding-bottom: 56.25%;
     height: 0;
 }
 
@@ -196,12 +260,12 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
 }
 
 footer {
     text-align: center;
     padding: 40px;
-    color: #888;
+    color: #999;
     font-size: 0.8rem;
 }
+`
