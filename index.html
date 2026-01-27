@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semvt | VTubers</title>
-    <!-- Google Fonts: Noto Sans JP (как в оригинале) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header class="hero">
-        <div class="container">
+        <div class="profile-container">
             <img src="avatar.jpg" alt="Avatar" class="avatar">
             <h1>Semvt</h1>
             <p>Gamer, Electronics Engineer, PC Builder, VTuber Fan</p>
@@ -24,120 +23,90 @@
         </div>
     </header>
 
-    <main id="top_talent">
-        <div class="container">
-            <h2 class="top_tit">FAVORITE VTUBERS</h2>
+    <main>
+        <h2 class="section_title">FAVORITE VTUBERS</h2>
+        
+        <ul class="talent_list">
             
-            <ul class="talent_list">
+            <!-- GURA -->
+            <li class="talent_item">
+                <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
+                <figure><img src="gura.webp" alt="Gawr Gura"></figure>
+
+                <!-- Закрытое состояние -->
+                <div class="closed_info">
+                    <span class="open_label">Open</span>
+                </div>
+
+                <!-- Логотип группы (заменитель текста справа) -->
+                <div class="group_logo">Hololive EN</div>
+
+                <!-- Открытое состояние -->
+                <div class="open_box">
+                    <div class="name_box">
+                        <h3>Gawr Gura</h3>
+                        <span class="sub">Hololive English -Myth-</span>
+                    </div>
+                    <div class="links_box">
+                        <a href="https://www.youtube.com/@GawrGura" target="_blank" class="btn"><i class="fab fa-youtube"></i> Channel</a>
+                        <a href="https://twitter.com/gawrgura" target="_blank" class="btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <p class="desc">A descendant of the Lost City of Atlantis, who swam to Earth while saying, "It's so boring down there LOLOLOL!"</p>
+                </div>
+                <div class="bg_text"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
+            </li>
+
+            <!-- MARINE -->
+            <li class="talent_item">
+                <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
+                <figure><img src="marine.png" alt="Houshou Marine"></figure>
+
+                <div class="closed_info">
+                    <span class="open_label">Open</span>
+                </div>
                 
-                <!-- GURA -->
-                <li class="talent_item">
-                    <!-- Уголки (Декор) -->
-                    <span class="deco d_01"></span>
-                    <span class="deco d_02"></span>
-                    <span class="deco d_03"></span>
-                    <span class="deco d_04"></span>
+                <div class="group_logo" style="color: #FF8A80;">Hololive JP</div>
 
-                    <!-- Картинка Персонажа -->
-                    <figure>
-                        <img src="gura.webp" alt="Gawr Gura">
-                    </figure>
-
-                    <!-- Текст в ЗАКРЫТОМ состоянии (Справа) -->
-                    <div class="closed_info">
-                        <span class="en_name">Gawr Gura</span>
-                        <span class="jp_name">Hololive EN</span>
+                <div class="open_box">
+                    <div class="name_box">
+                        <h3>Houshou Marine</h3>
+                        <span class="sub">Hololive 3rd Gen</span>
                     </div>
-
-                    <!-- Контент в ОТКРЫТОМ состоянии (Слева) -->
-                    <div class="open_box">
-                        <div class="name_box">
-                            <h3>Gawr Gura</h3>
-                            <span class="sub">Hololive English -Myth-</span>
-                        </div>
-                        <div class="links_box">
-                            <a href="https://www.youtube.com/@GawrGura" target="_blank" class="btn">
-                                <i class="fab fa-youtube"></i> Channel
-                            </a>
-                            <a href="https://twitter.com/gawrgura" target="_blank" class="btn twitter">
-                                <i class="fab fa-twitter"></i> Twitter
-                            </a>
-                        </div>
-                        <p class="desc">A descendant of the Lost City of Atlantis, who swam to Earth while saying, "It's so boring down there LOLOLOL!"</p>
+                    <div class="links_box">
+                        <a href="https://www.youtube.com/@HoushouMarine" target="_blank" class="btn"><i class="fab fa-youtube"></i> Channel</a>
+                        <a href="#" target="_blank" class="btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
                     </div>
-                    
-                    <!-- Фоновый бегущий текст (для красоты) -->
-                    <div class="talent_bg_open">
-                        <span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span>
+                    <p class="desc">"Ahoy! Houshou Pirate Captain, Houshou Marine here!" Loves jewels, treasure, and money.</p>
+                </div>
+                <div class="bg_text"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
+            </li>
+
+            <!-- INA -->
+            <li class="talent_item">
+                <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
+                <figure><img src="ina.png" alt="Ninomae Ina'nis"></figure>
+
+                <div class="closed_info">
+                    <span class="open_label">Open</span>
+                </div>
+
+                <div class="group_logo" style="color: #BA68C8;">Hololive EN</div>
+
+                <div class="open_box">
+                    <div class="name_box">
+                        <h3>Ninomae Ina'nis</h3>
+                        <span class="sub">Hololive English -Myth-</span>
                     </div>
-                </li>
-
-                <!-- MARINE -->
-                <li class="talent_item">
-                    <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
-                    
-                    <figure>
-                        <img src="marine.png" alt="Houshou Marine">
-                    </figure>
-
-                    <div class="closed_info">
-                        <span class="en_name">Houshou Marine</span>
-                        <span class="jp_name">Hololive JP</span>
+                    <div class="links_box">
+                        <a href="https://www.youtube.com/@NinomaeInanis" target="_blank" class="btn"><i class="fab fa-youtube"></i> Channel</a>
+                        <a href="#" target="_blank" class="btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
                     </div>
+                    <p class="desc">One day, she picked up a strange book and then started to gain the power of controlling tentacles.</p>
+                </div>
+                <div class="bg_text"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
+            </li>
 
-                    <div class="open_box">
-                        <div class="name_box">
-                            <h3>Houshou Marine</h3>
-                            <span class="sub">Hololive 3rd Gen</span>
-                        </div>
-                        <div class="links_box">
-                            <a href="https://www.youtube.com/@HoushouMarine" target="_blank" class="btn">
-                                <i class="fab fa-youtube"></i> Channel
-                            </a>
-                            <a href="#" target="_blank" class="btn twitter">
-                                <i class="fab fa-twitter"></i> Twitter
-                            </a>
-                        </div>
-                        <p class="desc">"Ahoy! Houshou Pirate Captain, Houshou Marine here!" Loves jewels, treasure, and money.</p>
-                    </div>
-                    
-                    <div class="talent_bg_open"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
-                </li>
-
-                <!-- INA -->
-                <li class="talent_item">
-                    <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
-                    
-                    <figure>
-                        <img src="ina.png" alt="Ninomae Ina'nis">
-                    </figure>
-
-                    <div class="closed_info">
-                        <span class="en_name">Ninomae Ina'nis</span>
-                        <span class="jp_name">Hololive EN</span>
-                    </div>
-
-                    <div class="open_box">
-                        <div class="name_box">
-                            <h3>Ninomae Ina'nis</h3>
-                            <span class="sub">Hololive English -Myth-</span>
-                        </div>
-                        <div class="links_box">
-                            <a href="https://www.youtube.com/@NinomaeInanis" target="_blank" class="btn">
-                                <i class="fab fa-youtube"></i> Channel
-                            </a>
-                            <a href="#" target="_blank" class="btn twitter">
-                                <i class="fab fa-twitter"></i> Twitter
-                            </a>
-                        </div>
-                        <p class="desc">One day, she picked up a strange book and then started to gain the power of controlling tentacles.</p>
-                    </div>
-                    
-                    <div class="talent_bg_open"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
-                </li>
-
-            </ul>
-        </div>
+        </ul>
     </main>
 
     <script src="script.js"></script>
