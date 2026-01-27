@@ -1,160 +1,149 @@
 @charset "utf-8";
 
-/* --- 1. БАЗА --- */
+/* --- 1. БАЗОВЫЕ НАСТРОЙКИ --- */
 :root {
-    --color-black: #393939;
-    --color-white: #fff;
     --color-primary: #27C7FF;
     --font-en: 'Rubik', sans-serif;
     --font-jp: 'Noto Sans JP', sans-serif;
+    --card-height: 140px;      /* Высота закрытой карточки */
+    --card-height-open: 450px; /* Высота открытой карточки */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: var(--font-jp);
-    color: var(--color-black);
     background-color: #F8F8F8;
+    color: #333;
     overflow-x: hidden;
 }
-ul { list-style: none; }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-img { max-width: 100%; height: auto; border: 0; }
+a { text-decoration: none; color: inherit; }
 
+/* Шапка (Hero) */
+.hero { background: #fff; padding: 40px 0; text-align: center; border-bottom: 1px solid #ddd; margin-bottom: 50px; }
+.avatar { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--color-primary); object-fit: cover; margin-bottom: 15px; }
 .container { max-width: 1100px; width: 90%; margin: 0 auto; }
+.section_title { text-align: center; font-family: var(--font-en); font-size: 32px; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
 
-/* --- 2. HEADER --- */
-.hero { background: #fff; padding: 60px 0; text-align: center; border-bottom: 1px solid #E4E4E4; margin-bottom: 60px; }
-.avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--color-primary); object-fit: cover; margin-bottom: 20px; }
-.top_tit { font-family: var(--font-en); font-size: 40px; font-weight: bold; margin-bottom: 0.5em; }
-.large_txt { font-size: 16px; font-weight: bold; color: #666; margin-bottom: 20px; }
-.social-links a { font-size: 24px; margin: 0 10px; color: #ccc; }
-.social-links a:hover { color: var(--color-primary); }
+/* --- 2. СПИСОК (КАРТОЧКИ) --- */
+.talent_list {
+    list-style: none;
+    border-top: 1px solid #E4E4E4;
+}
 
-/* --- 3. СПИСОК (ОСНОВА) --- */
-#top_talent { margin-bottom: 120px; }
-.talent_list { border-top: 1px solid #E4E4E4; }
-
-.talent_list li {
-    height: 140px; /* Высота закрытой карточки */
-    overflow: hidden;
+.talent_item {
     position: relative;
+    height: var(--card-height);
     background-color: #fff;
     border-bottom: 1px solid #E4E4E4;
-    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden; /* ВАЖНО: обрезает всё лишнее */
     cursor: pointer;
+    transition: height 0.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s;
 }
 
-/* Синяя шторка */
-.talent_list li::before {
-    position: absolute; content: ''; width: 100%; height: 100%; top: 0; left: 0;
+/* Эффект синей заливки при наведении */
+.talent_item::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background-color: #f4fdff;
-    transform-origin: 100% 50%; transform: scaleX(0); transition: transform ease .6s;
+    transform: scaleX(0); transform-origin: right; transition: transform 0.4s;
     z-index: 0;
 }
-.talent_list li:hover::before { transform: scaleX(1); transform-origin: 0% 50%; }
+.talent_item:hover::before { transform: scaleX(1); transform-origin: left; }
 
-/* --- 4. КАРТИНКИ (ОБЩАЯ ЛОГИКА) --- */
-.talent_list li figure {
+
+/* --- 3. КАРТИНКИ ПЕРСОНАЖЕЙ --- */
+/* Контейнер картинки */
+.talent_item figure {
     position: absolute;
-    width: 35%; /* Ширина контейнера картинки */
-    height: 100%;
     top: 0;
     left: 0;
+    width: 40%; /* В закрытом виде занимает 40% ширины слева */
+    height: 100%;
+    margin: 0;
     z-index: 1;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
-    transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.talent_list li figure img {
+/* Сама картинка */
+.talent_item figure img {
     position: absolute;
-    width: 100%;
-    /* Ключ к успеху: картинка позиционируется абсолютно внутри figure */
-    transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    top: 0; 
+    left: 50%;
+    width: 100%; 
+    min-width: 300px; /* Чтобы не сжималась слишком сильно */
+    transform: translateX(-50%); /* Центрируем в блоке */
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* --- НАСТРОЙКА ЛИЦ (ЗАКРЫТОЕ СОСТОЯНИЕ) --- */
+/* Тут мы двигаем картинку так, чтобы в узкой полоске было видно глаза */
 
-/* --- 5. ТЕКСТ ЗАКРЫТОГО СОСТОЯНИЯ --- */
-.talent_list li .g_name {
+/* Gura - маленькая, нужно приблизить */
+.img-gura { margin-top: -10%; transform: translateX(-50%) scale(1.2) !important; }
+
+/* Marine - шляпа мешает, опускаем ниже */
+.img-marine { margin-top: -15%; transform: translateX(-50%) scale(1.1) !important; }
+
+/* Kiara/Ina - высокие модели, поднимаем выше */
+.img-kiara { margin-top: -20%; transform: translateX(-50%) scale(1.1) !important; } 
+.img-ina { margin-top: -18%; transform: translateX(-50%) scale(1.1) !important; }
+
+
+/* --- 4. ТЕКСТ (ЗАКРЫТОЕ СОСТОЯНИЕ) --- */
+/* Название группы по центру */
+.center_txt {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     font-family: var(--font-en); font-size: 32px; font-weight: 900; color: #ccc;
-    transition: 0.3s ease; z-index: 2; margin: 0; white-space: nowrap;
+    z-index: 2; transition: 0.3s; margin: 0; white-space: nowrap;
 }
-.talent_list li .tl_txt {
-    position: absolute; top: 50%; right: 10%; transform: translateY(-50%);
+/* Надпись Open справа */
+.open_txt {
+    position: absolute; top: 50%; right: 5%; transform: translateY(-50%);
     font-family: var(--font-en); font-weight: bold; color: var(--color-primary);
-    transition: 0.3s ease; margin: 0;
+    z-index: 2; transition: 0.3s;
 }
 
-/* --- 6. ТЕКСТ ОТКРЫТОГО СОСТОЯНИЯ --- */
-.open_box {
-    opacity: 0; transition: 0.4s ease;
-    width: 45%; position: absolute; left: 5%; top: 50%; 
-    transform: translateY(-50%); z-index: 2;
-    pointer-events: none;
+/* --- 5. КОНТЕНТ (ОТКРЫТОЕ СОСТОЯНИЕ) --- */
+.open_content {
+    position: absolute; top: 50%; left: 5%; 
+    transform: translateY(-50%);
+    width: 45%; /* Текст занимает левую половину */
+    opacity: 0; 
+    z-index: 5;
+    transition: 0.4s 0.1s; /* Задержка появления */
+    pointer-events: none; /* Чтобы не кликалось в закрытом виде */
 }
 
-.open_box .g_name_02 { font-family: var(--font-en); font-size: 32px; font-weight: 900; margin-bottom: 5px; line-height: 1; }
-.open_box .sub_txt { font-size: 14px; font-weight: bold; color: #999; margin-bottom: 15px; }
-.open_box .desc { font-size: 14px; line-height: 1.6; margin-bottom: 20px; max-width: 90%; }
+.open_content h3 { font-family: var(--font-en); font-size: 36px; font-weight: 900; margin-bottom: 5px; line-height: 1; }
+.open_content .sub { font-size: 14px; color: #999; font-weight: bold; margin-bottom: 20px; display: block; }
+.open_content .desc { font-size: 14px; line-height: 1.6; margin-bottom: 25px; color: #555; }
 
 /* Кнопки */
-.btn_outwrap { display: flex; gap: 10px; }
-.btn_primary {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 10px 24px; border-radius: 50px;
-    font-family: var(--font-en); font-weight: bold; font-size: 14px;
-    border: 2px solid var(--color-primary);
-    transition: 0.3s; cursor: pointer;
+.btns { display: flex; gap: 10px; }
+.btn {
+    display: inline-flex; align-items: center; padding: 10px 25px;
+    border-radius: 50px; font-weight: bold; font-family: var(--font-en);
+    border: 2px solid var(--color-primary); transition: 0.3s; cursor: pointer;
 }
-.btn_primary i { margin-right: 8px; font-size: 16px; }
-.btn_primary.bl { background: var(--color-primary); color: #fff; }
-.btn_primary.bl:hover { background: #fff; color: var(--color-primary); }
-.btn_primary.wt { background: #fff; color: var(--color-primary); }
-.btn_primary.wt:hover { background: var(--color-primary); color: #fff; }
+.btn i { margin-right: 8px; }
+.btn.blue { background: var(--color-primary); color: #fff; }
+.btn.blue:hover { background: #fff; color: var(--color-primary); }
+.btn.white { background: #fff; color: var(--color-primary); }
+.btn.white:hover { background: var(--color-primary); color: #fff; }
 
-/* --- 7. НАСТРОЙКА КАРТИНОК (ЛИЦА) --- */
-/* ЗАКРЫТОЕ СОСТОЯНИЕ:
-   Поднимаем картинку (top отрицательный) или скейлим, чтобы лицо попало в полоску 140px.
-   translateY(-Х%) сдвигает картинку вверх относительно её высоты.
-*/
 
-/* Gura: Маленькая, нужно приблизить */
-.img-gura {
-    top: 0; 
-    transform: translateY(-20%) scale(1.4); 
-    transform-origin: top center;
+/* --- 6. СОСТОЯНИЕ ACTIVE (ОТКРЫТО) --- */
+.talent_item.active {
+    height: var(--card-height-open);
+    background-color: #f4fdff;
+    cursor: default;
 }
 
-/* Marine: Шляпа мешает, сдвигаем чуть ниже или меняем масштаб */
-.img-marine {
-    top: 0;
-    transform: translateY(-15%) scale(1.3);
-    transform-origin: top center;
-}
-
-/* Ina: Высокая, нужно сильнее поднять */
-.img-ina {
-    top: 0;
-    transform: translateY(-18%) scale(1.3);
-    transform-origin: top center;
-}
-
-
-/* --- 8. АКТИВНОЕ СОСТОЯНИЕ (ОТКРЫТО) --- */
-.talent_list li.active { height: 400px; background-color: #f4fdff; }
-
-/* Двигаем контейнер картинки вправо */
-.talent_list li.active figure {
-    width: 50%;
-    left: 45%; /* Картинка уезжает направо */
+/* Двигаем картинку вправо */
+.talent_item.active figure {
+    width: 50%;  /* Ширина контейнера картинки */
+    left: 50%;   /* Сдвигаем на правую половину */
     height: 100%;
 }
 
-/* Сбрасываем сдвиг лица и ставим картинку в полный рост */
-.talent_list li.active figure img {
-    width: auto;
-    max-height: 110%; /* Чуть больше блока, чтобы выглядело эпично */
-    bottom: 0; /* Прижимаем к низу */
-    top: auto; /* Сбрасываем верх */
-    left: 50%;
-    /* Центрируем по горизонтали и чуть сдвигаем
+/* Став
