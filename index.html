@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semvt | VTubers</title>
+    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Стили -->
     <link rel="stylesheet" href="style.css">
+    <!-- Иконки -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -30,19 +33,20 @@
             
             <!-- GURA -->
             <li class="talent_item">
+                <!-- Уголки -->
                 <span class="deco d_01"></span><span class="deco d_02"></span>
                 <span class="deco d_03"></span><span class="deco d_04"></span>
                 
                 <figure>
-                    <!-- scale(1.4) - увеличиваем на 40% -->
-                    <!-- translateY(10%) - чуть опускаем вниз -->
-                    <img src="gura.webp" alt="Gawr Gura" 
-                         style="transform: scale(1.4) translateY(10%); object-position: left center;">
+                    <!-- НАСТРОЙКА: Гура маленькая, увеличиваем (scale 1.3) и поднимаем повыше (-40%) -->
+                    <img src="gura.webp" alt="Gawr Gura" style="transform: translate(-50%, -40%) scale(1.3);">
                 </figure>
 
+                <!-- Состояние: ЗАКРЫТО -->
                 <div class="closed_info"><span class="open_label">Open</span></div>
                 <div class="group_logo">Hololive EN</div>
 
+                <!-- Состояние: ОТКРЫТО -->
                 <div class="open_box">
                     <div class="name_box">
                         <h3>Gawr Gura</h3>
@@ -54,6 +58,7 @@
                     </div>
                     <p class="desc">A descendant of the Lost City of Atlantis, who swam to Earth while saying, "It's so boring down there LOLOLOL!"</p>
                 </div>
+                <!-- Фоновый текст -->
                 <div class="bg_text"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
             </li>
 
@@ -63,10 +68,8 @@
                 <span class="deco d_03"></span><span class="deco d_04"></span>
                 
                 <figure>
-                    <!-- object-position: 0 20% - смещаем фокус на лицо (ниже шапки) -->
-                    <!-- scale(1.3) - увеличиваем -->
-                    <img src="marine.png" alt="Houshou Marine" 
-                         style="object-position: 0 20%; transform: scale(1.3);">
+                    <!-- НАСТРОЙКА: Марин высокая из-за шляпы, опускаем её ниже (-30%), чтобы видеть лицо -->
+                    <img src="marine.png" alt="Houshou Marine" style="transform: translate(-50%, -30%);">
                 </figure>
 
                 <div class="closed_info"><span class="open_label">Open</span></div>
@@ -92,9 +95,8 @@
                 <span class="deco d_03"></span><span class="deco d_04"></span>
                 
                 <figure>
-                    <!-- scale(1.3) - увеличиваем -->
-                    <img src="ina.png" alt="Ninomae Ina'nis" 
-                         style="transform: scale(1.3); object-position: left center;">
+                    <!-- НАСТРОЙКА: Ина - стандартное выравнивание по центру (-50%) -->
+                    <img src="ina.png" alt="Ninomae Ina'nis" style="transform: translate(-50%, -50%);">
                 </figure>
 
                 <div class="closed_info"><span class="open_label">Open</span></div>
@@ -115,7 +117,6 @@
             </li>
 
         </ul>
-
     </main>
 
     <script src="script.js"></script>
