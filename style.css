@@ -204,8 +204,8 @@ img { max-width: 100%; height: auto; border: 0; }
     .talent_list li { height: 50vw; }
     
     /* Сдвигаем картинку влево, чтобы было видно лицо */
-    .talent_list li figure { width: 84%; left: -16vw; }
-    .talent_list li figure img { width: 100%; min-width: unset; transform: scale(1.2); }
+    .talent_list li figure { width: 80%; left: -16vw; }
+    .talent_list li figure img { width: 100%; min-width: unset; ; }
 
     /* Скрываем имя по центру */
     .talent_list li .g_name, 
@@ -219,10 +219,10 @@ img { max-width: 100%; height: auto; border: 0; }
     
     /* В активном состоянии на мобильном увеличиваем высоту */
     .talent_list li.active { height: 80vw; }
-    .talent_list li.active figure { left: -20vw; width: 90%; }
+    .talent_list li.active figure { left: -20vw; width: 85%; }
     .talent_list li.active .open_box { top: 60%; }
     .talent_list li.active .desc { display: block; font-size: 12px; }
-}
+    
 /* --- 7. FOOTER С QR КОДОМ --- */
 .site_footer {
     background-color: #fff;
