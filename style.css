@@ -3,7 +3,6 @@
     --font-jp: 'Noto Sans JP', sans-serif;
     --font-en: 'Rubik', sans-serif;
     --bg-color: #f8f8f8;
-    --text-color: #333;
     --card-hover: #f4fdff;
 }
 
@@ -11,96 +10,72 @@ body {
     margin: 0;
     font-family: var(--font-jp);
     background-color: var(--bg-color);
-    color: var(--text-color);
     overflow-x: hidden;
 }
 
-/* Header */
+/* --- HEADER --- */
 .hero {
     background: #fff;
     text-align: center;
-    padding: 60px 20px;
-    border-bottom: 4px solid var(--primary);
+    padding: 50px 20px;
+    border-bottom: 1px solid #ddd;
 }
-.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid var(--primary);
-    object-fit: cover;
-}
-.social-links a {
-    font-size: 24px;
-    color: #888;
-    margin: 0 10px;
-    transition: 0.3s;
-}
+.profile-container { max-width: 800px; margin: 0 auto; }
+.avatar { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
+.hero h1 { margin: 10px 0 5px; font-family: var(--font-en); }
+.social-links a { font-size: 24px; color: #aaa; margin: 0 10px; transition: 0.3s; }
 .social-links a:hover { color: var(--primary); }
 
-.container {
-    max-width: 1100px;
-    width: 90%;
-    margin: 0 auto;
-}
-
-.top_tit {
-    font-family: var(--font-en);
+.section_title {
     text-align: center;
-    font-size: 30px;
-    color: #1C93BC;
-    margin: 50px 0 30px;
+    font-family: var(--font-en);
+    font-size: 32px;
+    color: #333;
+    margin: 60px 0 40px;
     letter-spacing: 0.1em;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-/* === HOLOLIVE TALENT LIST STYLE === */
-
+/* --- FULL WIDTH LIST --- */
 .talent_list {
     list-style: none;
     padding: 0;
     margin: 0;
-    border-top: 1px solid #E4E4E4;
+    width: 100%; /* ВО ВСЮ ШИРИНУ */
+    border-top: 1px solid #eee;
 }
 
 .talent_item {
-    height: 140px; /* Высота закрытой карточки */
+    width: 100%;
+    height: 220px; /* КРУПНЫЕ ПАНЕЛИ (как в оригинале) */
     position: relative;
     background-color: #fff;
-    border-bottom: 1px solid #E4E4E4;
-    transition: 0.3s ease;
+    border-bottom: 1px solid #eee;
+    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     cursor: pointer;
     overflow: hidden;
 }
 
-/* Эффект наведения (синяя шторка) */
+/* Синяя заливка при наведении */
 .talent_item::before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    position: absolute; content: ''; width: 100%; height: 100%; top: 0; left: 0;
     background-color: var(--card-hover);
-    transform-origin: 100% 50%;
-    transform: scaleX(0); /* Скрыта по умолчанию */
-    transition: transform ease .6s;
+    transform-origin: 100% 50%; transform: scaleX(0); transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
     z-index: 0;
 }
+.talent_item:hover::before { transform: scaleX(1); }
 
-.talent_item:hover::before {
-    transform-origin: 0% 50%;
-    transform: scaleX(1); /* Показываем при наведении */
-}
-
-/* Картинка (FIGURE) */
+/* КАРТИНКА */
 .talent_item figure {
     position: absolute;
-    width: 300px; /* Фиксированная ширина для портрета */
+    width: 35%; /* Занимает 35% экрана */
     height: 100%;
     top: 0;
-    left: 0; /* В закрытом виде слева */
+    left: -2%; /* Чуть за краем */
     margin: 0;
     z-index: 2;
-    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
 }
 
@@ -108,199 +83,125 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; /* Важно: фокусировка на лице */
-    transition: 0.3s ease;
+    object-position: top center;
 }
 
-/* Текст в ЗАКРЫТОМ состоянии (Справа) */
+/* Текст "Hololive..." по центру */
+.group_logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-en);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--primary);
+    z-index: 2;
+    transition: 0.3s;
+    opacity: 1;
+}
+
+/* Надпись "Open" справа */
 .closed_info {
     position: absolute;
     top: 50%;
-    right: 5%; /* Справа */
+    right: 3%;
     transform: translateY(-50%);
-    text-align: right;
-    transition: 0.3s ease;
     z-index: 2;
+    transition: 0.3s;
 }
-
-.closed_info .en_name {
-    display: block;
+.open_label {
     font-family: var(--font-en);
-    font-size: 24px;
     font-weight: bold;
     color: var(--primary);
-    line-height: 1em;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
-.closed_info .jp_name {
-    display: block;
-    font-size: 14px;
-    color: #999;
-    margin-top: 5px;
-}
-
-/* Текст в ОТКРЫТОМ состоянии (Скрыт по умолчанию) */
-.open_box {
-    opacity: 0;
-    position: absolute;
-    left: 5%; /* Слева */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40%;
-    z-index: 2;
-    transition: 0.3s ease;
-    pointer-events: none; /* Чтобы не мешал кликам пока скрыт */
-}
-
-.open_box h3 {
-    font-family: var(--font-en);
-    font-size: 32px;
-    margin: 0;
-    color: #333;
-}
-
-.open_box .sub {
-    color: #888;
-    font-weight: bold;
-    font-size: 14px;
-    display: block;
-    margin-bottom: 20px;
-}
-
-.open_box .desc {
-    font-size: 13px;
-    color: #555;
-    line-height: 1.6;
-    margin-top: 15px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Кнопки ссылок */
-.links_box {
-    display: flex;
-    gap: 10px;
-}
-
-.btn {
-    text-decoration: none;
-    padding: 8px 20px;
-    border-radius: 50px;
-    background: #fff;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 14px;
-    transition: 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-.btn:hover { background: var(--primary); color: #fff; }
-.btn.twitter { border-color: #1DA1F2; color: #1DA1F2; }
-.btn.twitter:hover { background: #1DA1F2; color: #fff; }
-
-
-/* === ACTIVE STATE (Когда кликнули) === */
-
+/* --- АКТИВНОЕ СОСТОЯНИЕ (ОТКРЫТО) --- */
 .talent_item.active {
-    height: 400px; /* Карточка раскрывается */
+    height: 500px; /* Раскрываем сильно */
     background-color: var(--card-hover);
     cursor: default;
 }
 
-/* 1. Картинка переезжает в центр/вправо и увеличивается */
+/* Картинка едет вправо */
 .talent_item.active figure {
-    left: 45%; /* Сдвиг вправо */
-    width: 50%; /* Становится шире */
-    height: 110%; /* Чуть вылезает за пределы для эффекта */
+    left: 55%; /* Сдвиг в правую часть экрана */
+    width: 45%; 
+    height: 110%; /* Легкий зум */
     top: -5%;
 }
 
-.talent_item.active figure img {
-    transform: scale(1.1); /* Легкий зум */
-}
-
-/* 2. Закрытый текст исчезает */
+/* Скрываем старые элементы */
+.talent_item.active .group_logo,
 .talent_item.active .closed_info {
     opacity: 0;
-    transform: translateY(-50%) translateX(20px);
+    transform: translate(-50%, -50%) scale(0.8);
 }
 
-/* 3. Открытый бокс появляется */
+/* Контент слева (появляется) */
+.open_box {
+    opacity: 0;
+    position: absolute;
+    left: 10%; /* Отступ слева */
+    top: 50%;
+    transform: translateY(-40%);
+    width: 40%;
+    z-index: 5;
+    transition: 0.5s 0.1s ease; /* Задержка появления */
+    pointer-events: none;
+}
+
 .talent_item.active .open_box {
     opacity: 1;
-    pointer-events: auto; /* Кнопки становятся кликабельными */
-}
-
-/* 4. Бегущая строка на фоне */
-.talent_bg_open {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 0;
     transform: translateY(-50%);
-    font-family: var(--font-en);
-    font-size: 80px;
-    font-weight: bold;
-    color: #fff;
-    opacity: 0;
-    white-space: nowrap;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-    transition: 0.3s;
+    pointer-events: auto;
 }
 
-.talent_item.active .talent_bg_open {
-    opacity: 0.4; /* Полупрозрачный текст */
+.open_box h3 { font-family: var(--font-en); font-size: 48px; margin: 0; color: #333; line-height: 1.1; }
+.open_box .sub { color: #888; font-weight: bold; font-size: 16px; display: block; margin-bottom: 30px; text-transform: uppercase;}
+.open_box .desc { font-size: 15px; color: #555; line-height: 1.8; margin-top: 20px; max-width: 500px; }
+
+/* Кнопки */
+.links_box { display: flex; gap: 15px; }
+.btn {
+    text-decoration: none; padding: 10px 30px; border-radius: 50px;
+    background: #fff; border: 2px solid var(--primary); color: var(--primary);
+    font-weight: bold; font-size: 14px; transition: 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 5px 15px rgba(39, 199, 255, 0.15);
 }
+.btn:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+.btn.twitter { border-color: #000; color: #000; box-shadow: none; }
+.btn.twitter:hover { background: #000; color: #fff; }
 
-/* Уголки (Decor) */
-.deco {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--primary);
-    transition: 0.3s;
-    opacity: 0;
+/* Бегущий текст */
+.bg_text {
+    position: absolute; width: 100%; top: 50%; left: 0;
+    transform: translateY(-50%);
+    font-family: var(--font-en); font-size: 120px; font-weight: 900;
+    color: #fff; opacity: 0; white-space: nowrap; z-index: 0;
+    pointer-events: none; overflow: hidden; transition: 0.3s;
 }
-.d_01 { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
-.d_02 { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
-.d_03 { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
-.d_04 { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+.talent_item.active .bg_text { opacity: 0.5; }
 
-.talent_item.active .deco { opacity: 1; }
+/* Уголки */
+.deco { position: absolute; width: 15px; height: 15px; border: 3px solid var(--primary); transition: 0.3s; opacity: 0; }
+.d_01 { top: 15px; left: 15px; border-right: 0; border-bottom: 0; }
+.d_02 { top: 15px; right: 15px; border-left: 0; border-bottom: 0; }
+.d_03 { bottom: 15px; right: 15px; border-left: 0; border-top: 0; }
+.d_04 { bottom: 15px; left: 15px; border-right: 0; border-top: 0; }
+.talent_item:hover .deco, .talent_item.active .deco { opacity: 1; }
 
-
-/* MOBILE (Телефоны) */
-@media (max-width: 768px) {
-    .talent_item { height: 100px; }
+/* MOBILE */
+@media (max-width: 900px) {
+    .talent_item { height: 160px; }
+    .group_logo { font-size: 24px; }
+    .talent_item figure { width: 50%; left: -10%; }
     
-    .talent_item figure {
-        width: 120px; /* Узкая полоска слева */
-        left: -10px; /* Чуть обрезана */
-    }
-    
-    .closed_info .en_name { font-size: 18px; }
-    
-    /* Активное состояние на телефоне */
-    .talent_item.active { height: 500px; } /* Выше, чтобы влезло все */
-    
-    .talent_item.active figure {
-        left: auto;
-        right: -20%; /* Картинка уходит вправо */
-        width: 80%;
-        height: 60%;
-        top: 40%; /* Спускается вниз */
-    }
-    
-    .talent_item.active .open_box {
-        width: 90%;
-        left: 5%;
-        top: 20%; /* Текст сверху */
-        transform: none;
-    }
+    .talent_item.active { height: 600px; }
+    .talent_item.active figure { left: auto; right: -20%; width: 90%; height: 50%; top: auto; bottom: 0; }
+    .talent_item.active .open_box { width: 90%; left: 5%; top: 5%; transform: none; }
+    .open_box h3 { font-size: 32px; }
 }
