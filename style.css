@@ -195,7 +195,6 @@ img { max-width: 100%; height: auto; border: 0; }
 .talent_list li.active .talent_bg_open { opacity: 1; }
 .talent_list li.active .a_open { display: none; } /* Убираем перекрытие, чтобы кнопки работали */
 
-
 /* --- 6. МОБИЛЬНАЯ ВЕРСИЯ (ОЧЕНЬ ВАЖНО) --- */
 @media only screen and (max-width: 768px) {
     .top_tit { font-size: 30px; }
