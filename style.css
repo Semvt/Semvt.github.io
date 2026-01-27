@@ -67,15 +67,15 @@ body {
 /* КАРТИНКА */
 .talent_item figure {
     position: absolute;
-    width: 500px; /* Фиксированная ширина, чтобы не растягивало */
-    height: 120%; /* Чуть больше высоты блока, чтобы можно было двигать */
-    top: -10%; 
-    left: 0; 
+    width: 45%; /* Даем картинке почти половину ширины экрана */
+    height: 140%; /* Делаем контейнер выше самой карточки, чтобы двигать картинку вверх-вниз */
+    top: -20%; /* Центруем по вертикали */
+    left: 2%; /* Небольшой отступ от левого края */
     margin: 0;
     z-index: 2;
     transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
-    /* Плавное исчезание справа */
+    /* Маска для плавного исчезновения справа */
     mask-image: linear-gradient(to right, black 60%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
 }
@@ -83,8 +83,9 @@ body {
 .talent_item figure img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* ВАЖНО: Не обрезает, а вписывает */
-    object-position: left center; /* Прижимает влево */
+    object-fit: contain; /* Вписываем картинку */
+    object-position: left center; /* Прижимаем влево */
+    transform-origin: center center; /* Зуммируем от центра */
     transition: 0.5s ease;
 }
 
