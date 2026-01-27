@@ -165,17 +165,17 @@ img { max-width: 100%; height: auto; border: 0; }
 
 /* Gura: Обычно маленькая, нужно увеличить и опустить */
 .talent_list li.active figure .pos-gura {
-    transform: scale(1.35) translateY(20%) translateX(0);
+    transform: scale(1.4) translateY(25%);
 }
 
 /* Marine: Может быть широкой из-за шляпы/позы, сдвигаем чуть влево или меняем масштаб */
 .talent_list li.active figure .pos-marine {
-    transform: scale(1.4) translateY(15%);
+    transform: scale(1.5) translateY(13%);
 }
 
 /* Ina: Настройка под её арт */
 .talent_list li.active figure .pos-ina {
-    transform: scale(1.25) translateY(25%);
+    transform: scale(1.4) translateY(25%);
 }
 
 /* Добавьте свои классы по аналогии: */
@@ -222,4 +222,72 @@ img { max-width: 100%; height: auto; border: 0; }
     .talent_list li.active figure { left: -20vw; width: 90%; }
     .talent_list li.active .open_box { top: 60%; }
     .talent_list li.active .desc { display: block; font-size: 12px; }
+}
+/* --- 7. FOOTER С QR КОДОМ --- */
+.site_footer {
+    background-color: #fff;
+    border-top: 1px solid #E4E4E4;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Декоративная полоска сверху, как у Hololive */
+.site_footer::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), #fff, var(--color-primary));
+}
+
+.footer_tit {
+    font-family: var(--font-en);
+    font-weight: 900;
+    font-size: 24px;
+    color: #ccc;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.qr_box {
+    display: inline-block;
+    padding: 15px;
+    background: #fff;
+    border: 2px dashed #E4E4E4; /* Пунктирная рамка для стиля "билета" */
+    border-radius: 20px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.qr_box:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(39, 199, 255, 0.2);
+}
+
+.qr_box img {
+    width: 120px;
+    height: 120px;
+    display: block;
+}
+
+.footer_txt {
+    font-size: 12px;
+    color: #999;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.copy {
+    font-size: 11px;
+    color: #ccc;
+}
+
+/* Адаптив для мобильных */
+@media only screen and (max-width: 768px) {
+    .qr_box img { width: 100px; height: 100px; }
+    /* На мобильном QR код сканировать сложно, можно добавить кнопку "Скопировать" */
+    /* Но как декоративный элемент он все равно выглядит круто */
 }
