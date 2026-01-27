@@ -1,22 +1,30 @@
+console.log("Script loaded!"); // Проверка работы
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Ищем все панели
     const panels = document.querySelectorAll('.vtuber-panel');
 
     panels.forEach(panel => {
-        // Добавляем слушатель только на заголовок, чтобы клики по кнопкам внутри не закрывали панель
+        // Ищем заголовок внутри панели
         const header = panel.querySelector('.panel-header');
         
-        header.addEventListener('click', () => {
-            const isActive = panel.classList.contains('active');
-            
-            // Закрываем остальные
-            panels.forEach(p => {
-                p.classList.remove('active');
-            });
+        if (header) {
+            header.addEventListener('click', (e) => {
+                console.log("Clicked!"); // Проверка клика
+                
+                // Проверяем, открыта ли уже эта панель
+                const isActive = panel.classList.contains('active');
+                
+                // Закрываем ВСЕ панели
+                panels.forEach(p => {
+                    p.classList.remove('active');
+                });
 
-            // Открываем текущую, если она была закрыта
-            if (!isActive) {
-                panel.classList.add('active');
-            }
-        });
+                // Если нажатая панель была закрыта - открываем её
+                if (!isActive) {
+                    panel.classList.add('active');
+                }
+            });
+        }
     });
 });
