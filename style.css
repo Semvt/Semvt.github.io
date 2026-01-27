@@ -1,174 +1,306 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
-
 :root {
-    --primary: #29B6F6;
-    --bg: #f0f4f8;
-    --text: #333;
+    --primary: #27C7FF;
+    --font-jp: 'Noto Sans JP', sans-serif;
+    --font-en: 'Rubik', sans-serif;
+    --bg-color: #f8f8f8;
+    --text-color: #333;
+    --card-hover: #f4fdff;
 }
 
-body { margin: 0; font-family: 'Noto Sans', sans-serif; background-color: var(--bg); color: var(--text); }
+body {
+    margin: 0;
+    font-family: var(--font-jp);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
 
-/* --- HERO --- */
-.hero { background: #fff; text-align: center; padding: 60px 20px; border-bottom: 4px solid var(--primary); }
-.avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; }
-.social-links { margin-top: 15px; }
-.social-links a { color: #555; font-size: 24px; margin: 0 15px; transition: 0.3s; text-decoration: none; }
+/* Header */
+.hero {
+    background: #fff;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 4px solid var(--primary);
+}
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    object-fit: cover;
+}
+.social-links a {
+    font-size: 24px;
+    color: #888;
+    margin: 0 10px;
+    transition: 0.3s;
+}
 .social-links a:hover { color: var(--primary); }
 
-/* --- SECTIONS --- */
-.section { max-width: 900px; margin: 50px auto; padding: 0 20px; }
-h2 { text-align: center; text-transform: uppercase; color: #2c3e50; }
-.subtitle { text-align: center; color: #888; margin-bottom: 30px; }
-.games-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-.game-card { background: white; padding: 10px 20px; border-radius: 5px; border: 1px solid #ddd; font-weight: 700; cursor: default; transition: 0.3s;}
-.game-card:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-
-/* --- VTUBER LIST (СЛИТНЫЙ СПИСОК) --- */
-.vtuber-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* УБРАЛИ ОТСТУПЫ (прижали друг к другу) */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Тень для всего списка сразу */
-    border-radius: 8px; /* Скругляем углы всему списку */
-    overflow: hidden;
+.container {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
 }
 
-.vtuber-panel {
-    background: white;
-    overflow: hidden;
-    transition: 0.3s;
-    position: relative;
-    border-bottom: 1px solid #eee; /* Линия между панелями */
-    border-radius: 0; /* Квадратные углы внутри списка */
+.top_tit {
+    font-family: var(--font-en);
+    text-align: center;
+    font-size: 30px;
+    color: #1C93BC;
+    margin: 50px 0 30px;
+    letter-spacing: 0.1em;
 }
 
-/* Убираем линию у последнего элемента */
-.vtuber-panel:last-child { border-bottom: none; }
+/* === HOLOLIVE TALENT LIST STYLE === */
 
-/* HEADER */
-.panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 160px;
+.talent_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #E4E4E4;
+}
+
+.talent_item {
+    height: 140px; /* Высота закрытой карточки */
     position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #E4E4E4;
+    transition: 0.3s ease;
     cursor: pointer;
-    background: white;
-    z-index: 10;
+    overflow: hidden;
 }
 
-/* DECOR (Треугольники) */
-.panel-decor-left, .panel-decor-right {
-    position: absolute; width: 0; height: 0; z-index: 20;
-    pointer-events: none; 
-}
-.panel-decor-left { top: 0; left: 0; border-top: 40px solid var(--primary); border-right: 40px solid transparent; }
-.panel-decor-right { bottom: 0; right: 0; border-bottom: 40px solid var(--primary); border-left: 40px solid transparent; }
-
-/* IMAGE */
-.vtuber-img-wrapper {
-    width: 280px;
+/* Эффект наведения (синяя шторка) */
+.talent_item::before {
+    position: absolute;
+    content: '';
+    width: 100%;
     height: 100%;
-    margin-right: 20px;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--card-hover);
+    transform-origin: 100% 50%;
+    transform: scaleX(0); /* Скрыта по умолчанию */
+    transition: transform ease .6s;
+    z-index: 0;
 }
 
-.vtuber-img-wrapper img {
+.talent_item:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1); /* Показываем при наведении */
+}
+
+/* Картинка (FIGURE) */
+.talent_item figure {
+    position: absolute;
+    width: 300px; /* Фиксированная ширина для портрета */
+    height: 100%;
+    top: 0;
+    left: 0; /* В закрытом виде слева */
+    margin: 0;
+    z-index: 2;
+    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+}
+
+.talent_item figure img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Плавная анимация */
+    object-position: top center; /* Важно: фокусировка на лице */
+    transition: 0.3s ease;
 }
 
-/* INFO */
-.vtuber-info {
-    flex-grow: 1;
-    z-index: 5;
-    transition: 0.4s;
-    padding-left: 10px;
+/* Текст в ЗАКРЫТОМ состоянии (Справа) */
+.closed_info {
+    position: absolute;
+    top: 50%;
+    right: 5%; /* Справа */
+    transform: translateY(-50%);
+    text-align: right;
+    transition: 0.3s ease;
+    z-index: 2;
 }
-.vtuber-info h3 { margin: 0; font-size: 1.8rem; }
-.group-name { color: #999; font-weight: 700; text-transform: uppercase; }
 
-/* ARROW */
-.vtuber-action {
-    padding-right: 50px;
+.closed_info .en_name {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+    line-height: 1em;
+}
+
+.closed_info .jp_name {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* Текст в ОТКРЫТОМ состоянии (Скрыт по умолчанию) */
+.open_box {
+    opacity: 0;
+    position: absolute;
+    left: 5%; /* Слева */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    z-index: 2;
+    transition: 0.3s ease;
+    pointer-events: none; /* Чтобы не мешал кликам пока скрыт */
+}
+
+.open_box h3 {
+    font-family: var(--font-en);
+    font-size: 32px;
+    margin: 0;
+    color: #333;
+}
+
+.open_box .sub {
+    color: #888;
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.open_box .desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Кнопки ссылок */
+.links_box {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: #fff;
+    border: 2px solid var(--primary);
     color: var(--primary);
     font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 5;
-}
-
-/* --- АКТИВНОЕ СОСТОЯНИЕ (ОТКРЫТО) --- */
-
-/* 1. Картинка: Сильный зум (1.5x) и сильный сдвиг вправо (200px) */
-.vtuber-panel.active .vtuber-img-wrapper img {
-    transform: translateX(200px) scale(1.5); 
-}
-
-/* 2. Текст исчезает */
-.vtuber-panel.active .vtuber-info {
-    opacity: 0;
-    transform: translateX(50px);
-}
-
-.vtuber-panel.active .vtuber-action i { transform: rotate(180deg); }
-.vtuber-panel.active .open-text { display: none; }
-
-/* --- КНОПКИ --- */
-.panel-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    background: #fcfcfc;
-    /* Внутренняя тень, чтобы показать глубину */
-    box-shadow: inset 0 5px 10px rgba(0,0,0,0.02); 
-}
-
-.vtuber-panel.active .panel-body {
-    max-height: 250px;
-}
-
-.buttons-container {
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.video-btn {
-    text-decoration: none;
-    background: white;
-    color: #333;
-    padding: 10px 25px;
-    border-radius: 50px;
-    border: 2px solid var(--primary);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.2s;
     font-size: 14px;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn:hover { background: var(--primary); color: #fff; }
+.btn.twitter { border-color: #1DA1F2; color: #1DA1F2; }
+.btn.twitter:hover { background: #1DA1F2; color: #fff; }
+
+
+/* === ACTIVE STATE (Когда кликнули) === */
+
+.talent_item.active {
+    height: 400px; /* Карточка раскрывается */
+    background-color: var(--card-hover);
+    cursor: default;
 }
 
-.video-btn:hover { background: var(--primary); color: white; }
-.channel-btn { border-color: #ff4444; color: #ff4444; }
-.channel-btn:hover { background: #ff4444; color: white; }
+/* 1. Картинка переезжает в центр/вправо и увеличивается */
+.talent_item.active figure {
+    left: 45%; /* Сдвиг вправо */
+    width: 50%; /* Становится шире */
+    height: 110%; /* Чуть вылезает за пределы для эффекта */
+    top: -5%;
+}
 
-/* MOBILE */
-@media (max-width: 600px) {
-    .panel-header { flex-direction: column; height: auto; padding-bottom: 10px; text-align: center; }
-    .vtuber-img-wrapper { width: 100%; height: 250px; margin: 0; }
-    .vtuber-info { padding: 15px; }
-    .vtuber-action { flex-direction: row; gap: 10px; padding: 10px; }
+.talent_item.active figure img {
+    transform: scale(1.1); /* Легкий зум */
+}
+
+/* 2. Закрытый текст исчезает */
+.talent_item.active .closed_info {
+    opacity: 0;
+    transform: translateY(-50%) translateX(20px);
+}
+
+/* 3. Открытый бокс появляется */
+.talent_item.active .open_box {
+    opacity: 1;
+    pointer-events: auto; /* Кнопки становятся кликабельными */
+}
+
+/* 4. Бегущая строка на фоне */
+.talent_bg_open {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-family: var(--font-en);
+    font-size: 80px;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0;
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.talent_item.active .talent_bg_open {
+    opacity: 0.4; /* Полупрозрачный текст */
+}
+
+/* Уголки (Decor) */
+.deco {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--primary);
+    transition: 0.3s;
+    opacity: 0;
+}
+.d_01 { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.d_02 { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+.d_03 { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+.d_04 { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+
+.talent_item.active .deco { opacity: 1; }
+
+
+/* MOBILE (Телефоны) */
+@media (max-width: 768px) {
+    .talent_item { height: 100px; }
     
-    /* На телефоне просто зум, без сдвига, иначе картинка улетит за экран */
-    .vtuber-panel.active .vtuber-img-wrapper img { transform: scale(1.1); }
-    .vtuber-panel.active .vtuber-info { opacity: 1; transform: none; }
+    .talent_item figure {
+        width: 120px; /* Узкая полоска слева */
+        left: -10px; /* Чуть обрезана */
+    }
+    
+    .closed_info .en_name { font-size: 18px; }
+    
+    /* Активное состояние на телефоне */
+    .talent_item.active { height: 500px; } /* Выше, чтобы влезло все */
+    
+    .talent_item.active figure {
+        left: auto;
+        right: -20%; /* Картинка уходит вправо */
+        width: 80%;
+        height: 60%;
+        top: 40%; /* Спускается вниз */
+    }
+    
+    .talent_item.active .open_box {
+        width: 90%;
+        left: 5%;
+        top: 20%; /* Текст сверху */
+        transform: none;
+    }
 }
