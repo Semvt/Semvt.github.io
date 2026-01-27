@@ -67,21 +67,32 @@ body {
 /* КАРТИНКА */
 .talent_item figure {
     position: absolute;
-    width: 45%; /* Увеличили ширину картинки (было 35%) */
-    height: 100%;
-    top: 0;
-    left: -2%;
+    /* Делаем контейнер картинки широким, но не во весь экран */
+    width: 600px; 
+    height: 120%; /* Чуть выше самой карточки, чтобы можно было двигать */
+    top: -10%; /* Центруем по вертикали */
+    left: 0; /* Прижимаем влево (но картинка внутри будет двигаться) */
     margin: 0;
     z-index: 2;
     transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
+    /* Добавляем маску, чтобы картинка плавно исчезала справа (как у Hololive) */
+    mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
 }
 
 .talent_item figure img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center; /* По умолчанию лицо сверху */
+    object-fit: contain; /* ВАЖНО: contain покажет картинку целиком, не обрезая */
+    object-position: left center; /* Прижимаем персонажа влево */
+    transition: 0.5s ease;
+    transform-origin: center center;
+}
+
+/* При наведении чуть увеличиваем */
+.talent_item:hover figure img {
+    transform: scale(1.05);
 }
 
 /* Текст "Hololive..." */
