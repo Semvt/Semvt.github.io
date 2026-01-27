@@ -13,6 +13,7 @@ body {
     color: var(--text);
 }
 
+/* --- ШАПКА --- */
 .hero {
     background: #fff;
     color: #333;
@@ -21,76 +22,118 @@ body {
     border-bottom: 4px solid var(--primary);
 }
 .avatar { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; }
-.social-links a { color: #555; font-size: 24px; margin: 0 15px; transition: 0.3s; }
+.social-links { margin-top: 15px; }
+.social-links a { color: #555; font-size: 24px; margin: 0 15px; transition: 0.3s; text-decoration: none; }
 .social-links a:hover { color: var(--primary); }
+
+/* --- ОБЩИЕ БЛОКИ --- */
 .section { max-width: 900px; margin: 50px auto; padding: 0 20px; }
 h2 { text-align: center; text-transform: uppercase; letter-spacing: 1px; color: #2c3e50; }
 .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+
+/* --- ИГРЫ --- */
 .games-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-.game-card { background: white; padding: 10px 20px; border-radius: 5px; border: 1px solid #ddd; font-weight: 700; transition: 0.3s; }
+.game-card { background: white; padding: 10px 20px; border-radius: 5px; border: 1px solid #ddd; font-weight: 700; transition: 0.3s; cursor: default; }
 .game-card:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
-/* --- VTUBER PANELS --- */
-
-.vtuber-list { display: flex; flex-direction: column; gap: 25px; }
+/* --- ВИТУБЕРЫ (ПАНЕЛИ) --- */
+.vtuber-list { display: flex; flex-direction: column; gap: 20px; }
 
 .vtuber-panel {
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     overflow: hidden;
-    transition: 0.4s ease-in-out;
+    transition: 0.3s;
     position: relative;
-    cursor: pointer;
+    border-radius: 4px;
 }
 
-/* ЗАГОЛОВОК ПАНЕЛИ */
+/* ЗАГОЛОВОК ПАНЕЛИ (ТО, ЧТО ВИДНО СРАЗУ) */
 .panel-header {
     display: flex;
-    align-items: stretch; /* Растягиваем элементы по высоте */
+    align-items: center;
     justify-content: space-between;
-    height: 150px; /* Увеличили высоту панели */
+    height: 150px; /* Фиксированная высота */
     position: relative;
     z-index: 2;
     background: white;
-    transition: 0.3s;
+    cursor: pointer;
+    overflow: hidden; /* Чтобы картинка обрезалась краями */
 }
 
-/* Уголки */
+/* УГОЛКИ */
 .panel-decor-left {
-    position: absolute; top: 0; left: 0; width: 0; height: 0;
-    border-top: 30px solid var(--primary); border-right: 30px solid transparent;
-    z-index: 5;
+    position: absolute; top: 0; left: 0; 
+    border-top: 40px solid var(--primary); border-right: 40px solid transparent; z-index: 10;
 }
 .panel-decor-right {
-    position: absolute; bottom: 0; right: 0; width: 0; height: 0;
-    border-bottom: 30px solid var(--primary); border-left: 30px solid transparent;
-    z-index: 5;
+    position: absolute; bottom: 0; right: 0; 
+    border-bottom: 40px solid var(--primary); border-left: 40px solid transparent; z-index: 10;
 }
 
-/* КАРТИНКА - ИЗМЕНЕНИЯ ТУТ */
+/* КАРТИНКА */
 .vtuber-img-wrapper {
-    width: 200px; /* Сделали шире */
+    width: 250px; /* Ширина картинки */
     height: 100%;
     flex-shrink: 0;
-    overflow: visible;
     position: relative;
     margin-right: 20px;
+    z-index: 1;
 }
 
 .vtuber-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    object-position: top center; /* Прижали к верху (видно лицо) */
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    object-fit: cover;
+    object-position: top center; /* Лицо персонажа */
+    transition: transform 0.5s ease;
 }
 
-/* ТЕКСТ */
+/* ИНФОРМАЦИЯ О ПЕРСОНАЖЕ */
 .vtuber-info {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 10px;
+    z-index: 5;
+    transition: opacity 0.3s, transform 0.3s;
 }
-.vtuber-info h3 { margin: 0; font-size: 1.6rem; color: #3
+.vtuber-info h3 { margin: 0; font-size: 1.8rem; color: #333; }
+.group-name { color: #999; font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+
+/* СТРЕЛКА СПРАВА */
+.vtuber-action {
+    padding-right: 50px;
+    color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    z-index: 5;
+}
+
+/* --- АНИМАЦИЯ ПРИ ОТКРЫТИИ (.active) --- */
+
+/* 1. Картинка уезжает далеко вправо */
+.vtuber-panel.active .vtuber-img-wrapper img {
+    transform: translateX(180px) scale(1.1); /* Сдвиг вправо */
+}
+
+/* 2. Текст исчезает, чтобы не мешать картинке */
+.vtuber-panel.active .vtuber-info {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* 3. Стрелка крутится */
+.vtuber-panel.active .vtuber-action i { transform: rotate(180deg); transition: 0.3s; }
+.vtuber-panel.active .open-text { display: none; }
+
+
+/* --- СКРЫТАЯ ЧАСТЬ С КНОПКАМИ --- */
+.panel-body {
+    max-height: 0; /* Скрыто по умолчанию */
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    background: #f8f9fa;
+    border-top: 1px
