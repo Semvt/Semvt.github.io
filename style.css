@@ -154,6 +154,32 @@ img { max-width: 100%; height: auto; border: 0; }
 
 
 /* --- 5. СОСТОЯНИЕ ACTIVE (ОТКРЫТО) --- */
+/* --- 5.1 ИНДИВИДУАЛЬНАЯ НАСТРОЙКА ПОЗИЦИИ (ПРИ ОТКРЫТИИ) --- */
+/* 
+   Здесь мы перебиваем настройки "по умолчанию" для каждой конкретной картинки,
+   когда родительский li имеет класс active.
+   scale = масштаб (1.0 = 100%)
+   translateY = смещение по вертикали (вниз +, вверх -)
+   translateX = смещение по горизонтали (вправо +, влево -)
+*/
+
+/* Gura: Обычно маленькая, нужно увеличить и опустить */
+.talent_list li.active figure .pos-gura {
+    transform: scale(1.35) translateY(20%) translateX(0);
+}
+
+/* Marine: Может быть широкой из-за шляпы/позы, сдвигаем чуть влево или меняем масштаб */
+.talent_list li.active figure .pos-marine {
+    transform: scale(1.4) translateY(15%);
+}
+
+/* Ina: Настройка под её арт */
+.talent_list li.active figure .pos-ina {
+    transform: scale(1.25) translateY(25%);
+}
+
+/* Добавьте свои классы по аналогии: */
+/* .talent_list li.active figure .pos-name { ... } */
 .talent_list li.active { height: 400px; background-color: #f4fdff; }
 
 /* Двигаем картинку вправо */
