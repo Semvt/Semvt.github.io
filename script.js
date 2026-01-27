@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.talent_item');
+    const items = document.querySelectorAll('.talent_list li');
 
     items.forEach(item => {
+        // Обработчик клика на саму карточку
         item.addEventListener('click', (e) => {
-            // Если кликнули по ссылке внутри открытой карточки - не закрываем её
+            // Если кликнули по ссылке (кнопке Youtube/Twitter), не закрываем карточку
             if(e.target.closest('a')) return;
 
-            // Проверяем, активен ли текущий элемент
+            // Проверяем, открыт ли текущий элемент
             const isActive = item.classList.contains('active');
 
-            // 1. Убираем класс 'active' у ВСЕХ элементов
+            // 1. Закрываем все карточки
             items.forEach(el => el.classList.remove('active'));
 
-            // 2. Если элемент НЕ был активен, добавляем ему класс (открываем)
-            // Если был активен - он просто закроется (логика тогла)
+            // 2. Если карточка была закрыта, открываем её
             if (!isActive) {
                 item.classList.add('active');
             }
