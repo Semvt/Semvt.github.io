@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My World | Games & VTubers</title>
-    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header -->
     <header class="hero">
         <div class="profile-container">
-            <!-- Replace with your avatar URL -->
-            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
-            <h1>Semvt</h1> <!-- Your Nickname -->
+            <img src="avatar.jpg" alt="Avatar" class="avatar"> <!-- Ваша аватарка -->
+            <h1>Semvt</h1>
             <p>Gamer, Electronics Engineer, PC Builder, VTuber Fan</p>
-            
             <div class="social-links">
                 <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -29,7 +24,6 @@
     </header>
 
     <main>
-        <!-- Games Section -->
         <section class="section games-section">
             <h2><i class="fas fa-gamepad"></i> Favorite Games</h2>
             <div class="games-grid">
@@ -40,63 +34,80 @@
             </div>
         </section>
 
-        <!-- VTubers Section (Hololive List Style) -->
         <section class="section vtubers-section">
             <h2><i class="fas fa-tv"></i> Favorite VTubers</h2>
-            <p class="subtitle">Click on the panel to watch video</p>
+            <p class="subtitle">Click to expand</p>
             
             <div class="vtuber-list">
-                <!-- Card 1 -->
-                <div class="vtuber-panel" data-video="Q-X6T2yRjCk"> <!-- YouTube ID here -->
-                    <div class="panel-decor-left"></div> <!-- Blue triangle decoration -->
-                    <div class="vtuber-img-wrapper">
-                        <!-- Upload your image to /img folder and change src -->
-                        <img src="gura.webp" alt="Gawr Gura">
+                
+                <!-- Card 1: Gura -->
+                <div class="vtuber-panel" data-video="Q-X6T2yRjCk">
+                    <div class="panel-header">
+                        <div class="panel-decor-left"></div>
+                        <div class="vtuber-img-wrapper">
+                            <!-- Замените на gura.jpg -->
+                            <img src="gura.jpg" alt="Gawr Gura">
+                        </div>
+                        <div class="vtuber-info">
+                            <h3>Gawr Gura</h3>
+                            <span class="group-name">Hololive EN</span>
+                        </div>
+                        <div class="vtuber-action">
+                            <span class="open-text">Open</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="panel-decor-right"></div>
                     </div>
-                    <div class="vtuber-info">
-                        <h3>Gawr Gura</h3>
-                        <span class="group-name">Hololive EN</span>
+                    <!-- Скрытая часть с видео -->
+                    <div class="panel-body">
+                        <div class="video-container"></div>
                     </div>
-                    <div class="vtuber-action">
-                        <span>Watch Video</span>
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <div class="panel-decor-right"></div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2: Marine -->
                 <div class="vtuber-panel" data-video="I-3c1a9cBs0">
-                    <div class="panel-decor-left"></div>
-                    <div class="vtuber-img-wrapper">
-                        <img src="marine.png" alt="Houshou Marine">
+                    <div class="panel-header">
+                        <div class="panel-decor-left"></div>
+                        <div class="vtuber-img-wrapper">
+                            <img src="marine.jpg" alt="Houshou Marine">
+                        </div>
+                        <div class="vtuber-info">
+                            <h3>Houshou Marine</h3>
+                            <span class="group-name">Hololive JP</span>
+                        </div>
+                        <div class="vtuber-action">
+                            <span class="open-text">Open</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="panel-decor-right"></div>
                     </div>
-                    <div class="vtuber-info">
-                        <h3>Houshou Marine</h3>
-                        <span class="group-name">Hololive JP</span>
+                    <div class="panel-body">
+                        <div class="video-container"></div>
                     </div>
-                    <div class="vtuber-action">
-                        <span>Watch Video</span>
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <div class="panel-decor-right"></div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3: Ina -->
                 <div class="vtuber-panel" data-video="vQHVGXdcqEQ">
-                    <div class="panel-decor-left"></div>
-                    <div class="vtuber-img-wrapper">
-                        <img src="ina.png" alt="Ninomae Ina'nis">
+                    <div class="panel-header">
+                        <div class="panel-decor-left"></div>
+                        <div class="vtuber-img-wrapper">
+                            <img src="ina.jpg" alt="Ninomae Ina'nis">
+                        </div>
+                        <div class="vtuber-info">
+                            <h3>Ninomae Ina'nis</h3>
+                            <span class="group-name">Hololive EN</span>
+                        </div>
+                        <div class="vtuber-action">
+                            <span class="open-text">Open</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="panel-decor-right"></div>
                     </div>
-                    <div class="vtuber-info">
-                        <h3>Ninomae Ina'nis</h3>
-                        <span class="group-name">Hololive EN</span>
+                    <div class="panel-body">
+                        <div class="video-container"></div>
                     </div>
-                    <div class="vtuber-action">
-                        <span>Watch Video</span>
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <div class="panel-decor-right"></div>
                 </div>
+
             </div>
         </section>
     </main>
@@ -104,16 +115,6 @@
     <footer>
         <p>Powered by GitHub Pages &bull; 2024</p>
     </footer>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div class="video-wrapper">
-                <iframe id="youtubeFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
