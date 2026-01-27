@@ -26,27 +26,26 @@
         </div>
     </header>
 
-    <!-- Основная секция (Важно: ID top_talent нужен для стилей) -->
+    <!-- Основная секция -->
     <section id="top_talent">
         <div class="container">
             <h2 class="top_tit">FAVORITE VTUBERS</h2>
         </div>
 
-        <!-- Бегущая строка -->
-        <div class="txt_bg"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
+        <!-- УБРАНА БЕГУЩАЯ СТРОКА -->
 
         <ul class="talent_list">
             
             <!-- GURA -->
             <li class="talent_item">
-                <!-- Картинка (добавил класс pos-gura для настройки позиции) -->
-                <figure><img src="gura.webp" alt="Gawr Gura" class="pos-gura"></figure>
+                <!-- ВАЖНО: Добавлен класс img-gura для настройки позиции -->
+                <figure><img src="gura.webp" alt="Gawr Gura" class="img-gura"></figure>
                 
-                <!-- Состояние: Закрыто -->
+                <!-- Закрытое состояние -->
                 <p class="g_name">Hololive EN</p>
                 <p class="tl_txt">Open</p>
 
-                <!-- Состояние: Открыто -->
+                <!-- Открытое состояние -->
                 <div class="open_box">
                     <p class="g_name_02">Gawr Gura</p>
                     <p class="sub_txt">Hololive English -Myth-</p>
@@ -62,19 +61,17 @@
                     </div>
                 </div>
 
-                <!-- Декоративные уголки -->
+                <!-- Декор -->
                 <span class="deco d_01"></span><span class="deco d_02"></span>
                 <span class="deco d_03"></span><span class="deco d_04"></span>
-                
-                <!-- Анимация фона при открытии -->
                 <div class="talent_bg_open"><span>HOLOLIVE PRODUCTION</span></div>
-                <!-- Невидимая ссылка для клика (опционально, здесь используется JS для открытия) -->
                 <div class="a_open"></div> 
             </li>
 
             <!-- MARINE -->
             <li class="talent_item">
-                <figure><img src="marine.png" alt="Houshou Marine" class="pos-marine"></figure>
+                <!-- Добавлен класс img-marine -->
+                <figure><img src="marine.png" alt="Houshou Marine" class="img-marine"></figure>
                 
                 <p class="g_name" style="color: #cf2e2e;">Hololive JP</p>
                 <p class="tl_txt">Open</p>
@@ -99,7 +96,8 @@
 
             <!-- INA -->
             <li class="talent_item">
-                <figure><img src="ina.png" alt="Ninomae Ina'nis" class="pos-ina"></figure>
+                <!-- Добавлен класс img-ina -->
+                <figure><img src="ina.png" alt="Ninomae Ina'nis" class="img-ina"></figure>
                 
                 <p class="g_name" style="color: #9b51e0;">Hololive EN</p>
                 <p class="tl_txt">Open</p>
