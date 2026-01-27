@@ -3,139 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My World | Games & VTubers</title>
+    <title>Semvt | VTubers</title>
+    <!-- Google Fonts: Noto Sans JP (как в оригинале) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header class="hero">
-        <div class="profile-container">
-            <!-- Убедитесь, что имя файла верное -->
+        <div class="container">
             <img src="avatar.jpg" alt="Avatar" class="avatar">
             <h1>Semvt</h1>
             <p>Gamer, Electronics Engineer, PC Builder, VTuber Fan</p>
             <div class="social-links">
                 <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-steam"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-twitch"></i></a>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="section games-section">
-            <h2><i class="fas fa-gamepad"></i> Favorite Games</h2>
-            <div class="games-grid">
-                <div class="game-card">Minecraft</div>
-                <div class="game-card">Genshin Impact</div>
-                <div class="game-card">Elden Ring</div>
-                <div class="game-card">Valorant</div>
-            </div>
-        </section>
-
-        <section class="section vtubers-section">
-            <h2><i class="fas fa-tv"></i> Favorite VTubers</h2>
-            <p class="subtitle">Click on the card to open links</p>
+    <main id="top_talent">
+        <div class="container">
+            <h2 class="top_tit">FAVORITE VTUBERS</h2>
             
-            <div class="vtuber-list">
+            <ul class="talent_list">
                 
                 <!-- GURA -->
-                <div class="vtuber-panel">
-                    <div class="panel-header">
-                        <div class="panel-decor-left"></div>
-                        <div class="vtuber-img-wrapper">
-                            <img src="gura.webp" alt="Gawr Gura">
-                        </div>
-                        <div class="vtuber-info">
+                <li class="talent_item">
+                    <!-- Уголки (Декор) -->
+                    <span class="deco d_01"></span>
+                    <span class="deco d_02"></span>
+                    <span class="deco d_03"></span>
+                    <span class="deco d_04"></span>
+
+                    <!-- Картинка Персонажа -->
+                    <figure>
+                        <img src="gura.webp" alt="Gawr Gura">
+                    </figure>
+
+                    <!-- Текст в ЗАКРЫТОМ состоянии (Справа) -->
+                    <div class="closed_info">
+                        <span class="en_name">Gawr Gura</span>
+                        <span class="jp_name">Hololive EN</span>
+                    </div>
+
+                    <!-- Контент в ОТКРЫТОМ состоянии (Слева) -->
+                    <div class="open_box">
+                        <div class="name_box">
                             <h3>Gawr Gura</h3>
-                            <span class="group-name">Hololive EN</span>
+                            <span class="sub">Hololive English -Myth-</span>
                         </div>
-                        <div class="vtuber-action">
-                            <span class="open-text">Links</span>
-                            <i class="fas fa-chevron-down"></i>
+                        <div class="links_box">
+                            <a href="https://www.youtube.com/@GawrGura" target="_blank" class="btn">
+                                <i class="fab fa-youtube"></i> Channel
+                            </a>
+                            <a href="https://twitter.com/gawrgura" target="_blank" class="btn twitter">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
                         </div>
-                        <div class="panel-decor-right"></div>
+                        <p class="desc">A descendant of the Lost City of Atlantis, who swam to Earth while saying, "It's so boring down there LOLOLOL!"</p>
                     </div>
-                    <div class="panel-body">
-                        <div class="buttons-container">
-                            <a href="https://youtu.be/dBK0gKG6cvc" target="_blank" class="video-btn">
-                                <i class="fab fa-youtube"></i> Debut Stream
-                            </a>
-                            <a href="https://youtu.be/Q-X6T2yRjCk" target="_blank" class="video-btn">
-                                <i class="fas fa-music"></i> REFLECT
-                            </a>
-                            <a href="https://www.youtube.com/@GawrGura" target="_blank" class="video-btn channel-btn">
-                                <i class="fas fa-external-link-alt"></i> Channel
-                            </a>
-                        </div>
+                    
+                    <!-- Фоновый бегущий текст (для красоты) -->
+                    <div class="talent_bg_open">
+                        <span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span>
                     </div>
-                </div>
+                </li>
 
                 <!-- MARINE -->
-                <div class="vtuber-panel">
-                    <div class="panel-header">
-                        <div class="panel-decor-left"></div>
-                        <div class="vtuber-img-wrapper">
-                            <img src="marine.png" alt="Houshou Marine">
-                        </div>
-                        <div class="vtuber-info">
+                <li class="talent_item">
+                    <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
+                    
+                    <figure>
+                        <img src="marine.png" alt="Houshou Marine">
+                    </figure>
+
+                    <div class="closed_info">
+                        <span class="en_name">Houshou Marine</span>
+                        <span class="jp_name">Hololive JP</span>
+                    </div>
+
+                    <div class="open_box">
+                        <div class="name_box">
                             <h3>Houshou Marine</h3>
-                            <span class="group-name">Hololive JP</span>
+                            <span class="sub">Hololive 3rd Gen</span>
                         </div>
-                        <div class="vtuber-action">
-                            <span class="open-text">Links</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="panel-decor-right"></div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="buttons-container">
-                            <a href="https://youtu.be/I-3c1a9cBs0" target="_blank" class="video-btn">
-                                <i class="fas fa-music"></i> Treasure Box
+                        <div class="links_box">
+                            <a href="https://www.youtube.com/@HoushouMarine" target="_blank" class="btn">
+                                <i class="fab fa-youtube"></i> Channel
                             </a>
-                            <a href="https://www.youtube.com/@HoushouMarine" target="_blank" class="video-btn channel-btn">
-                                <i class="fas fa-external-link-alt"></i> Channel
+                            <a href="#" target="_blank" class="btn twitter">
+                                <i class="fab fa-twitter"></i> Twitter
                             </a>
                         </div>
+                        <p class="desc">"Ahoy! Houshou Pirate Captain, Houshou Marine here!" Loves jewels, treasure, and money.</p>
                     </div>
-                </div>
+                    
+                    <div class="talent_bg_open"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
+                </li>
 
                 <!-- INA -->
-                <div class="vtuber-panel">
-                    <div class="panel-header">
-                        <div class="panel-decor-left"></div>
-                        <div class="vtuber-img-wrapper">
-                            <img src="ina.png" alt="Ninomae Ina'nis">
-                        </div>
-                        <div class="vtuber-info">
-                            <h3>Ninomae Ina'nis</h3>
-                            <span class="group-name">Hololive EN</span>
-                        </div>
-                        <div class="vtuber-action">
-                            <span class="open-text">Links</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="panel-decor-right"></div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="buttons-container">
-                            <a href="https://youtu.be/vQHVGXdcqEQ" target="_blank" class="video-btn">
-                                <i class="fas fa-music"></i> Violet
-                            </a>
-                            <a href="https://www.youtube.com/@NinomaeInanis" target="_blank" class="video-btn channel-btn">
-                                <i class="fas fa-external-link-alt"></i> Channel
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <li class="talent_item">
+                    <span class="deco d_01"></span><span class="deco d_02"></span><span class="deco d_03"></span><span class="deco d_04"></span>
+                    
+                    <figure>
+                        <img src="ina.png" alt="Ninomae Ina'nis">
+                    </figure>
 
-            </div>
-        </section>
+                    <div class="closed_info">
+                        <span class="en_name">Ninomae Ina'nis</span>
+                        <span class="jp_name">Hololive EN</span>
+                    </div>
+
+                    <div class="open_box">
+                        <div class="name_box">
+                            <h3>Ninomae Ina'nis</h3>
+                            <span class="sub">Hololive English -Myth-</span>
+                        </div>
+                        <div class="links_box">
+                            <a href="https://www.youtube.com/@NinomaeInanis" target="_blank" class="btn">
+                                <i class="fab fa-youtube"></i> Channel
+                            </a>
+                            <a href="#" target="_blank" class="btn twitter">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                        </div>
+                        <p class="desc">One day, she picked up a strange book and then started to gain the power of controlling tentacles.</p>
+                    </div>
+                    
+                    <div class="talent_bg_open"><span>HOLOLIVE PRODUCTION HOLOLIVE PRODUCTION</span></div>
+                </li>
+
+            </ul>
+        </div>
     </main>
 
-    <footer><p>Powered by GitHub Pages</p></footer>
     <script src="script.js"></script>
 </body>
 </html>
