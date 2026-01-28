@@ -614,3 +614,67 @@ img { max-width: 100%; height: auto; border: 0; }
 .ability .cost { font-size: 16px; line-height: 1; }
 .ability p { line-height: 1.4; color: #444; }
 
+
+
+/*head style*/
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: var(--font-en);
+}
+
+.sub-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--color-primary);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.main-title .accent {
+    color: #0b124f; /* Тот самый синий Кронии */
+}
+
+.title-line {
+    width: 60px;
+    height: 4px;
+    background: #0b124f;
+    margin: 20px auto 0;
+}
+
+
+/*footer text*/
+.footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.disclaimer {
+    font-size: 10px;
+    color: #bbb;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .footer_bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+}
