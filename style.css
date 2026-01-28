@@ -548,74 +548,132 @@ img { max-width: 100%; height: auto; border: 0; }
     .ado-quote { border-left: none; border-top: 5px solid #0b124f; padding: 20px 0; }
 }
 /* --- СЕКЦИЯ ПК КАРТОЧЕК --- */
-.pc-specs-section { padding: 100px 0; background: #fff; }
+.pc-specs-section { padding: 80px 0; background: #fff; }
 
 .specs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
+/* Базовая карточка с анимацией и тенью */
 .tcg-card {
-    background: #f9f9f9;
-    border: 10px solid #e2e2e2;
-    border-radius: 15px;
-    padding: 15px;
-    font-family: var(--font-en);
-    transition: 0.3s ease;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
     position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    overflow: hidden;
 }
 
+/* Эффект всплытия */
 .tcg-card:hover {
-    transform: translateY(-10px) rotate(2deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: translateY(-12px);
 }
 
+/* Индивидуальные тени и границы в цветах персонажей */
+
+/* CPU - Elizabeth (Red) */
+.cpu-card:hover {
+    border-color: #cf2e2e;
+    box-shadow: 0 15px 30px rgba(207, 46, 46, 0.2);
+}
+.cpu-card .card-label { color: #cf2e2e; }
+
+/* GPU - Mint (Mint Green) */
+.gpu-card:hover {
+    border-color: #89e0c8;
+    box-shadow: 0 15px 30px rgba(137, 224, 200, 0.3);
+}
+.gpu-card .card-label { color: #89e0c8; }
+
+/* RAM - Kronii (Dark Blue) */
+.ram-card:hover {
+    border-color: #0b124f;
+    box-shadow: 0 15px 30px rgba(11, 18, 79, 0.2);
+}
+.ram-card .card-label { color: #0b124f; }
+
+/* Case - Ironmouse (Pink) */
+.case-card:hover {
+    border-color: #fabbc7;
+    box-shadow: 0 15px 30px rgba(250, 187, 199, 0.4);
+}
+.case-card .card-label { color: #fabbc7; }
+
+/* Внутренности карточки */
 .card-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-label {
+    font-size: 9px;
     font-weight: 900;
-    font-size: 14px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.card-hp {
+    font-family: var(--font-en);
+    font-size: 10px;
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 .card-img-box {
-    background: #fff;
-    border: 2px solid #eee;
-    height: 180px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    background: #fcfcfc;
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
-.card-img-box img { max-height: 90%; transition: 0.5s; }
-.tcg-card:hover .card-img-box img { transform: scale(1.1); }
+.card-img-box img {
+    max-height: 85%;
+    transition: transform 0.5s ease;
+}
 
-.card-name {
-    font-size: 20px;
+.tcg-card:hover .card-img-box img {
+    transform: scale(1.1);
+}
+
+.spec-title {
+    font-family: var(--font-en);
+    font-size: 16px;
     font-weight: 900;
     margin-bottom: 15px;
-    background: #eee;
-    padding: 5px 10px;
-    border-radius: 4px;
+    color: #1a1a1a;
 }
 
-.ability {
-    margin-bottom: 10px;
-    font-size: 13px;
+.spec-list {
+    list-style: none;
+    padding: 0;
+}
+
+.spec-list li {
+    font-size: 12px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #555;
 }
 
-.ability .cost { font-size: 16px; line-height: 1; }
-.ability p { line-height: 1.4; color: #444; }
-
-
-
+.spec-list li span {
+    font-weight: bold;
+    color: #bbb;
+    text-transform: uppercase;
+    font-size: 10px;
+}
 /*head style*/
 .section-header {
     text-align: center;
