@@ -614,21 +614,23 @@ img { max-width: 100%; height: auto; border: 0; }
 .ability .cost { font-size: 16px; line-height: 1; }
 .ability p { line-height: 1.4; color: #444; }
 
+/* роза */
 .rose-scroll-indicator {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 60px;
     height: 60px;
-    z-index: 1000;
+    z-index: 9999; /* Чтобы была поверх всего */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: 0;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+    opacity: 0; /* В JS она станет 1 при скролле */
+    transition: 0.5s ease-in-out;
+    pointer-events: auto; /* Позволяем кликать */
 }
+
 
 .rose-scroll-indicator.visible {
     opacity: 1;
@@ -637,9 +639,9 @@ img { max-width: 100%; height: auto; border: 0; }
 
 /* Сама роза */
 .ado-rose-svg {
-    color: #0b124f; /* Глубокий синий Кронии */
-    filter: drop-shadow(0 0 8px rgba(39, 199, 255, 0.6)); /* Голубое свечение */
-    transition: 0.3s;
+    color: #0b124f; /* Темно-синий Кронии */
+    filter: drop-shadow(0 0 10px rgba(39, 199, 255, 0.8));
+    display: block;
 }
 
 .rose-scroll-indicator:hover .ado-rose-svg {
@@ -658,9 +660,9 @@ img { max-width: 100%; height: auto; border: 0; }
 .petal {
     position: absolute;
     background: #27C7FF;
-    border-radius: 50% 0 50% 50%; /* Форма лепестка */
     width: 8px;
     height: 8px;
+    border-radius: 50% 0 50% 50%;
     opacity: 0;
 }
 
