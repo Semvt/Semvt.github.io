@@ -199,97 +199,112 @@ img { max-width: 100%; height: auto; border: 0; }
 .talent_list li.active .a_open { display: none; } /* Убираем перекрытие, чтобы кнопки работали */
 
 
-    /* --- 7. MOBILE (МОБИЛЬНАЯ ВЕРСИЯ) --- */
+/* --- 7. MOBILE (ИСПРАВЛЕННАЯ ВЕРСИЯ) --- */
 @media only screen and (max-width: 768px) {
-    .container { width: 90%; }
-    .top_tit { font-size: 28px; }
+    .container { width: 92%; }
     
+    /* Заголовок секции */
+    .main-title { font-size: 32px; }
+    .sub-label { letter-spacing: 3px; }
+
     /* --- 1. ЗАКРЫТОЕ СОСТОЯНИЕ --- */
     .talent_list li { 
-        height: 160px; /* Компактная высота */
+        height: 120px; /* Немного уменьшим высоту, чтобы список был компактнее */
     }
 
-    /* Картинка сдвинута влево */
+    /* Картинка (закрытая): фиксируем положение, чтобы не прыгала */
     .talent_list li figure { 
-        width: 70%; 
-        left: -10%; 
-        text-align: left; 
-    }
-    .talent_list li figure img { 
-        width: 100%; /* Размер картинки */
+        width: 100%; 
+        left: 0; 
+        top: 0;
+        transform: none !important; /* Сбрасываем сложные сдвиги */
+        text-align: left;
+        overflow: hidden;
     }
 
-    /* ИМЯ (Закрытое): Видно, справа */
+    /* Общие настройки для всех картинок в закрытом виде на мобилках */
+    .talent_list li figure img { 
+        height: 140%; /* Делаем чуть выше контейнера для эффекта обрезки */
+        width: auto;
+        max-width: none;
+        position: relative;
+        left: -20px; /* Сдвигаем чуть влево, чтобы лицо было видно */
+        top: -10%;
+        opacity: 0.8;
+    }
+
+    /* ИМЯ (Закрытое): справа */
     .talent_list li .g_name { 
         display: block;
-        opacity: 1;           /* Показываем */
-        font-size: 20px;      /* Размер шрифта поменьше */
-        width: 50%;           /* Занимает правую половину */
-        right: 5%; 
-        left: auto;           /* Отменяем центрирование */
+        opacity: 1;
+        font-size: 18px;
+        width: 60%;
+        right: 20px; 
+        left: auto;
         top: 50%; 
         transform: translateY(-50%); 
-        text-align: right;    /* Выравнивание по правому краю */
-        transition: opacity 0.3s; /* Плавное исчезновение */
-    }
-
-    /* Текст "Open" или категорию скрываем совсем, чтобы не мешал */
-    .talent_list li .tl_txt { display: none; }
-
-    /* Блок с кнопками (Open Box) СКРЫТ по умолчанию */
-    .open_box {
-        opacity: 0;
-        pointer-events: none; /* Нельзя нажать, пока скрыто */
+        text-align: right;
+        z-index: 10;
+        text-shadow: 0 0 10px #fff; /* Добавляем свечение, чтобы имя не терялось */
     }
 
     /* --- 2. ОТКРЫТОЕ СОСТОЯНИЕ (ACTIVE) --- */
     .talent_list li.active { 
-        height: 580px; /* Раскрываем на большую высоту */
+        height: 600px; 
     }
 
-    /* ИМЯ (Закрытое): ИСЧЕЗАЕТ */
-    .talent_list li.active .g_name {
-        opacity: 0;       /* Становится прозрачным */
-        visibility: hidden; /* Убираем совсем, чтобы не мешал кликам */
+    /* Картинка при открытии: центрируем и делаем прозрачнее фоном */
+    .talent_list li.active figure { 
+        width: 100%; 
+        left: 0; 
+        top: 0; 
+        height: 100%;
+        opacity: 0.4; /* Делаем картинку фоновой, чтобы текст читался */
+    }
+    
+    .talent_list li.active figure img {
+        height: 100%;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%) scale(1.2) !important;
     }
 
-    /* Блок с кнопками: ПОЯВЛЯЕТСЯ */
+    /* Блок с текстом: добавляем фон для читаемости */
     .talent_list li.active .open_box { 
         opacity: 1; 
         visibility: visible;
-        pointer-events: auto; /* Включаем кнопки */
+        pointer-events: auto;
         
-        /* Позиционируем блок контента */
         width: 100%; 
         left: 0; 
-        top: 60%; 
-        transform: translateY(0); 
-        text-align: center; /* Центрируем текст и кнопки */
-        padding: 0 15px;
+        top: auto;
+        bottom: 0; /* Прижимаем текст к низу */
+        padding: 40px 20px;
+        background: linear-gradient(to top, rgba(255,255,255,1) 70%, rgba(255,255,255,0)); /* Плавный переход фона */
+        text-align: center;
+        z-index: 20;
     }
 
-    /* Картинка при открытии уходит чуть вверх */
-    .talent_list li.active figure { 
-        width: 90%; 
-        left: 5%; 
-        top: 20px; 
-        transform: translateY(0); 
-    }
-    
-    /* Центрируем кнопки */
-    .btn_outwrap { justify-content: center; }
-
-    /* Уменьшаем заголовок внутри открытого блока */
-    .open_box .g_name_02 { font-size: 28px; }
-    
-    /* Настройки позиций картинок (сброс масштаба для мобилок) */
-    .talent_list li figure .pos-gura,
-    .talent_list li figure .pos-marine,
-    .talent_list li figure .pos-ina { transform: scale(1.0) translateY(10%); }
-    
+    /* Специфические фиксы для картинок при открытии (убираем твои прошлые transform) */
     .talent_list li.active figure .pos-gura,
     .talent_list li.active figure .pos-marine,
-    .talent_list li.active figure .pos-ina { transform: scale(1.2) translateY(0); }
+    .talent_list li.active figure .pos-ina,
+    .talent_list li.active figure .pos-mouse { 
+        transform: translateX(-50%) translateY(0) scale(1.1) !important; 
+    }
+
+    .open_box .desc {
+        color: #333;
+        font-weight: bold; /* Делаем описание жирнее */
+        margin-bottom: 25px;
+    }
+    
+    .btn_outwrap { 
+        flex-wrap: wrap; /* Чтобы кнопки не вылезали за экран */
+        justify-content: center; 
+    }
+    
+    .btn_primary { padding: 8px 15px; font-size: 12px; }
 }
 /* --- 7. FOOTER С QR КОДОМ --- */
 .site_footer {
