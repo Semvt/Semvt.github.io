@@ -82,10 +82,10 @@ img { max-width: 100%; height: auto; border: 0; }
 .talent_list li figure img { width: 400px; transition: 0.4s ease; position: relative; }
 
 /* Индивидуальная настройка положения (если картинки разные по высоте) */
-.pos-gura { transform: scale(1.1) translateY(33%); }
-.pos-marine { transform: scale(1.5) translateY(20%); } /* Марин чуть ниже, если есть шляпа */
-.pos-ina { transform: scale(1.2) translateY(33%); }
-.pos-mouse { transform: scale(1.5) translateY(20%); }
+.pos-gura { transform: scale(1.6) translateY(35%)translatex(3%); }
+.pos-marine { transform: scale(1.1) translateY(33%)translatex(3%); } /* Марин чуть ниже, если есть шляпа */
+.pos-ina { transform: scale(1.9) translateY(24%); }
+.pos-mouse { transform: scale(1.5) translateY(15%) translatex(3%); }
 /* --- ТЕКСТ В ЗАКРЫТОМ СОСТОЯНИИ --- */
 .talent_list li .g_name {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
