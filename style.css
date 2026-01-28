@@ -199,112 +199,73 @@ img { max-width: 100%; height: auto; border: 0; }
 .talent_list li.active .a_open { display: none; } /* Убираем перекрытие, чтобы кнопки работали */
 
 
-/* --- 7. MOBILE (ИСПРАВЛЕННАЯ ВЕРСИЯ) --- */
 @media only screen and (max-width: 768px) {
     .container { width: 92%; }
     
-    /* Заголовок секции */
-    .main-title { font-size: 32px; }
-    .sub-label { letter-spacing: 3px; }
+    /* Базовые настройки списка */
+    .talent_list li { height: 130px; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .talent_list li figure { width: 100%; left: 0; top: 0; transform: none !important; }
+    .talent_list li figure img { position: absolute; max-width: none; width: auto; transition: 0.5s; }
 
-    /* --- 1. ЗАКРЫТОЕ СОСТОЯНИЕ --- */
-    .talent_list li { 
-        height: 120px; /* Немного уменьшим высоту, чтобы список был компактнее */
-    }
+    /* --- 1. ИНДИВИДУАЛЬНО: ЗАКРЫТОЕ СОСТОЯНИЕ (li) --- */
+    
+    /* Elizabeth (pos-gura) */
+    .pos-gura { height: 280px; left: -60px; top: -30px; opacity: 0.7; }
+    
+    /* Mint (pos-marine) */
+    .pos-marine { height: 250px; left: -40px; top: -20px; opacity: 0.7; }
+    
+    /* Kronii (pos-ina) */
+    .pos-ina { height: 350px; left: -80px; top: -50px; opacity: 0.7; }
+    
+    /* Ironmouse (pos-mouse) */
+    .pos-mouse { height: 260px; left: -30px; top: -10px; opacity: 0.7; }
 
-    /* Картинка (закрытая): фиксируем положение, чтобы не прыгала */
-    .talent_list li figure { 
-        width: 100%; 
-        left: 0; 
-        top: 0;
-        transform: none !important; /* Сбрасываем сложные сдвиги */
-        text-align: left;
-        overflow: hidden;
-    }
-
-    /* Общие настройки для всех картинок в закрытом виде на мобилках */
-    .talent_list li figure img { 
-        height: 140%; /* Делаем чуть выше контейнера для эффекта обрезки */
-        width: auto;
-        max-width: none;
-        position: relative;
-        left: -20px; /* Сдвигаем чуть влево, чтобы лицо было видно */
-        top: -10%;
-        opacity: 0.8;
-    }
-
-    /* ИМЯ (Закрытое): справа */
+    /* Текст имени в закрытом состоянии */
     .talent_list li .g_name { 
-        display: block;
-        opacity: 1;
-        font-size: 18px;
-        width: 60%;
-        right: 20px; 
-        left: auto;
-        top: 50%; 
-        transform: translateY(-50%); 
-        text-align: right;
-        z-index: 10;
-        text-shadow: 0 0 10px #fff; /* Добавляем свечение, чтобы имя не терялось */
+        display: block; font-size: 22px; width: 60%; right: 15px; left: auto;
+        top: 50%; transform: translateY(-50%); text-align: right; z-index: 10;
+        text-shadow: 0 0 15px #fff, 0 0 5px rgba(0,0,0,0.2);
     }
 
-    /* --- 2. ОТКРЫТОЕ СОСТОЯНИЕ (ACTIVE) --- */
-    .talent_list li.active { 
-        height: 600px; 
-    }
+    /* --- 2. ИНДИВИДУАЛЬНО: ОТКРЫТОЕ СОСТОЯНИЕ (li.active) --- */
+    
+    .talent_list li.active { height: 620px; }
+    .talent_list li.active figure { opacity: 1; height: 100%; }
 
-    /* Картинка при открытии: центрируем и делаем прозрачнее фоном */
-    .talent_list li.active figure { 
-        width: 100%; 
-        left: 0; 
-        top: 0; 
-        height: 100%;
-        opacity: 0.4; /* Делаем картинку фоновой, чтобы текст читался */
+    /* Elizabeth (Active) */
+    .talent_list li.active figure .pos-gura { 
+        height: 550px; left: 50%; transform: translateX(-50%) !important; top: 0; opacity: 0.5; 
     }
     
-    .talent_list li.active figure img {
-        height: 100%;
-        width: auto;
-        left: 50%;
-        transform: translateX(-50%) scale(1.2) !important;
+    /* Mint (Active) */
+    .talent_list li.active figure .pos-marine { 
+        height: 500px; left: 50%; transform: translateX(-50%) !important; top: 20px; opacity: 0.5;
+    }
+    
+    /* Kronii (Active) */
+    .talent_list li.active figure .pos-ina { 
+        height: 650px; left: 50%; transform: translateX(-50%) !important; top: -40px; opacity: 0.4;
+    }
+    
+    /* Ironmouse (Active) */
+    .talent_list li.active figure .pos-mouse { 
+        height: 520px; left: 50%; transform: translateX(-50%) !important; top: 10px; opacity: 0.5;
     }
 
-    /* Блок с текстом: добавляем фон для читаемости */
+    /* Контент при открытии (Текст и кнопки) */
     .talent_list li.active .open_box { 
-        opacity: 1; 
-        visibility: visible;
-        pointer-events: auto;
-        
-        width: 100%; 
-        left: 0; 
-        top: auto;
-        bottom: 0; /* Прижимаем текст к низу */
-        padding: 40px 20px;
-        background: linear-gradient(to top, rgba(255,255,255,1) 70%, rgba(255,255,255,0)); /* Плавный переход фона */
-        text-align: center;
+        opacity: 1; visibility: visible; pointer-events: auto;
+        width: 100%; left: 0; bottom: 0; top: auto;
+        padding: 50px 20px 30px; 
+        background: linear-gradient(to top, white 60%, transparent); /* Белая подложка для текста */
         z-index: 20;
     }
 
-    /* Специфические фиксы для картинок при открытии (убираем твои прошлые transform) */
-    .talent_list li.active figure .pos-gura,
-    .talent_list li.active figure .pos-marine,
-    .talent_list li.active figure .pos-ina,
-    .talent_list li.active figure .pos-mouse { 
-        transform: translateX(-50%) translateY(0) scale(1.1) !important; 
-    }
-
-    .open_box .desc {
-        color: #333;
-        font-weight: bold; /* Делаем описание жирнее */
-        margin-bottom: 25px;
-    }
-    
-    .btn_outwrap { 
-        flex-wrap: wrap; /* Чтобы кнопки не вылезали за экран */
-        justify-content: center; 
-    }
-    
-    .btn_primary { padding: 8px 15px; font-size: 12px; }
+    .open_box .g_name_02 { font-size: 26px; }
+    .open_box .desc { color: #222; font-weight: 700; font-size: 14px; margin-bottom: 20px; }
+    .btn_outwrap { justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .btn_primary { padding: 10px 15px; font-size: 12px; }
 }
 /* --- 7. FOOTER С QR КОДОМ --- */
 .site_footer {
