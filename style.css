@@ -268,7 +268,7 @@ img { max-width: 100%; height: auto; border: 0; }
         left: 0; 
         bottom: 0; /* Прижимаем к самому низу */
         top: auto;
-        
+        box-shadow: 0 100% 0 0 #f4fdff;
         /* Уменьшаем нижний отступ до минимума (например, 15px или 20px) */
         padding: 60px 20px 15px; 
         
