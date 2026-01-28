@@ -208,19 +208,21 @@ img { max-width: 100%; height: auto; border: 0; }
     .talent_list li figure img { position: absolute; max-width: none; width: auto; transition: 0.5s; }
 
     /* --- 1. ИНДИВИДУАЛЬНО: ЗАКРЫТОЕ СОСТОЯНИЕ (li) --- */
-    
+    .talent_list li .tl_txt { 
+        display: none !important; 
+    }
     /* Elizabeth (pos-gura) */
-    .pos-gura { height: 280px; left: -60px; top: -30px; opacity: 0.7; }
+    .pos-gura { height: 360px; left: 0px; top: -140px; }
     
     /* Mint (pos-marine) */
-    .pos-marine { height: 250px; left: -40px; top: -20px; opacity: 0.7; }
+    .pos-marine { height: 650px; left: -30px; top: -270px; }
     
     /* Kronii (pos-ina) */
-    .pos-ina { height: 350px; left: -80px; top: -50px; opacity: 0.7; }
+    .pos-ina { height: 450px; left: -40px; top: -170px; }
     
     /* Ironmouse (pos-mouse) */
-    .pos-mouse { height: 260px; left: -30px; top: -10px; opacity: 0.7; }
-
+    .pos-mouse { height: 160px; left: -20px; top: -20px; }
+    
     /* Текст имени в закрытом состоянии */
     .talent_list li .g_name { 
         display: block; font-size: 22px; width: 60%; right: 15px; left: auto;
@@ -230,7 +232,10 @@ img { max-width: 100%; height: auto; border: 0; }
 
     /* --- 2. ИНДИВИДУАЛЬНО: ОТКРЫТОЕ СОСТОЯНИЕ (li.active) --- */
     
-    .talent_list li.active { height: 620px; }
+    .talent_list li.active { 
+        height: 600px; 
+        background-color: #f4fdff !important; 
+    }
     .talent_list li.active figure { opacity: 1; height: 100%; }
 
     /* Elizabeth (Active) */
@@ -255,17 +260,32 @@ img { max-width: 100%; height: auto; border: 0; }
 
     /* Контент при открытии (Текст и кнопки) */
     .talent_list li.active .open_box { 
-        opacity: 1; visibility: visible; pointer-events: auto;
-        width: 100%; left: 0; bottom: 0; top: auto;
-        padding: 50px 20px 30px; 
-        background: linear-gradient(to top, white 60%, transparent); /* Белая подложка для текста */
+        opacity: 1; 
+        visibility: visible; 
+        pointer-events: auto;
+        width: 100%; 
+        left: 0; 
+        bottom: 0; 
+        top: auto;
+        padding: 60px 20px 40px; 
+        
+        /* ГЛАВНОЕ: меняем белый цвет в градиенте на тот самый голубой #f4fdff */
+        background: linear-gradient(to top, 
+            #f4fdff 0%, 
+            #f4fdff 75%, 
+            rgba(244, 253, 255, 0) 100%
+        ); 
+        
         z-index: 20;
     }
 
-    .open_box .g_name_02 { font-size: 26px; }
-    .open_box .desc { color: #222; font-weight: 700; font-size: 14px; margin-bottom: 20px; }
-    .btn_outwrap { justify-content: center; gap: 8px; flex-wrap: wrap; }
-    .btn_primary { padding: 10px 15px; font-size: 12px; }
+    /* Сделаем текст чуть темнее, чтобы он лучше читался на голубом фоне */
+    .open_box .desc {
+        color: #1a1a1a; 
+        font-weight: 700;
+    }
+
+    /* ... остальной код ... */
 }
 /* --- 7. FOOTER С QR КОДОМ --- */
 .site_footer {
