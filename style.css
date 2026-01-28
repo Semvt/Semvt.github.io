@@ -46,7 +46,7 @@ img { max-width: 100%; height: auto; border: 0; }
 }
 
 /* --- 4. СПИСОК ТАЛАНТОВ (ОСНОВНАЯ ЛОГИКА) --- */
-#top_talent { margin-bottom: 120px; }
+#top_talent { margin-bottom: 0px; }
 .talent_list { border-top: 1px solid #E4E4E4; }
 
 .talent_list li {
