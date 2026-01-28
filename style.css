@@ -613,3 +613,67 @@ img { max-width: 100%; height: auto; border: 0; }
 
 .ability .cost { font-size: 16px; line-height: 1; }
 .ability p { line-height: 1.4; color: #444; }
+
+.rose-scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.rose-scroll-indicator.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Сама роза */
+.ado-rose-svg {
+    color: #0b124f; /* Глубокий синий Кронии */
+    filter: drop-shadow(0 0 8px rgba(39, 199, 255, 0.6)); /* Голубое свечение */
+    transition: 0.3s;
+}
+
+.rose-scroll-indicator:hover .ado-rose-svg {
+    color: #27C7FF; /* При наведении становится ярко-голубой */
+    filter: drop-shadow(0 0 15px rgba(39, 199, 255, 1));
+    transform: scale(1.1);
+}
+
+/* Улучшенные лепестки */
+.petals-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.petal {
+    position: absolute;
+    background: #27C7FF;
+    border-radius: 50% 0 50% 50%; /* Форма лепестка */
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+}
+
+.rose-scroll-indicator.visible .petal {
+    animation: petal-fly 4s infinite ease-out;
+}
+
+.p1 { top: 0; left: 20%; animation-delay: 0s; }
+.p2 { top: 20%; right: 10%; animation-delay: 1.3s; }
+.p3 { bottom: 20%; left: 10%; animation-delay: 2.6s; }
+
+@keyframes petal-fly {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translate(-40px, -60px) rotate(450deg); opacity: 0; }
+}
