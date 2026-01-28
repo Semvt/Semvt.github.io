@@ -678,3 +678,15 @@ img { max-width: 100%; height: auto; border: 0; }
         gap: 20px;
     }
 }
+
+/* Разные цвета для типов карт */
+.tcg-card.cpu { border-color: #ff4136; } /* AMD Red */
+.tcg-card.ram { border-color: #0b124f; } /* Твой синий */
+.tcg-card.case { border-color: #27C7FF; } /* Голубой */
+
+.card-hp {
+    background: #eee;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+}
