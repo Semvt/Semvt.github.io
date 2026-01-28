@@ -125,38 +125,3 @@ cards.forEach(card => {
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
     });
 });
-
-//роза
-const roseIndicator = document.getElementById('rose-scroll');
-
-// Добавь это в конец script.js
-const roseIndicator = document.getElementById('rose-scroll');
-
-
-if (roseIndicator) {
-    window.addEventListener('scroll', () => {
-        // Проверяем скролл
-        if (window.scrollY > 100) { // Появляется почти сразу
-            roseIndicator.classList.add('visible');
-            roseIndicator.style.opacity = "1";
-        } else {
-            roseIndicator.classList.remove('visible');
-            roseIndicator.style.opacity = "0";
-        }
-        
-        // Вращение
-        const rotation = window.scrollY / 5;
-        const svg = roseIndicator.querySelector('svg');
-        if (svg) {
-            svg.style.transform = `rotate(${rotation}deg)`;
-        }
-    });
-
-    // Клик наверх
-    roseIndicator.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
