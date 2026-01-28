@@ -690,3 +690,24 @@ img { max-width: 100%; height: auto; border: 0; }
     border-radius: 10px;
     font-size: 11px;
 }
+/* Цвет рамки для GPU */
+.tcg-card.gpu { 
+    border-color: #0b124f; /* Цвет Кронии - темно-синий */
+    box-shadow: 0 0 15px rgba(39, 199, 255, 0.2); 
+}
+
+/* Сетка 2x2 на десктопе */
+@media (min-width: 900px) {
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr); /* Ровно 2 колонки */
+        max-width: 800px; /* Чтобы карточки не были слишком растянутыми */
+        margin: 0 auto;
+    }
+}
+
+/* На мобилках они всё равно будут в одну колонку */
+@media (max-width: 768px) {
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+}
