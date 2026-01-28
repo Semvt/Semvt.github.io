@@ -359,3 +359,55 @@ img { max-width: 100%; height: auto; border: 0; }
     /* На мобильном QR код сканировать сложно, можно добавить кнопку "Скопировать" */
     /* Но как декоративный элемент он все равно выглядит круто */
 }
+/* --- 8. DISCORD STATUS WIDGET --- */
+
+/* Анимация перехода цвета рамки */
+#avatar-img {
+    transition: border-color 0.5s ease;
+}
+
+/* Статусы рамки */
+.border-online { border-color: #43b581 !important; } /* Зеленый */
+.border-idle { border-color: #faa61a !important; }   /* Желтый */
+.border-dnd { border-color: #f04747 !important; }    /* Красный */
+.border-offline { border-color: #747f8d !important; filter: grayscale(100%); } /* Серый */
+
+/* Сам блок виджета */
+.discord_widget {
+    background: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    opacity: 0; /* Скрыт, пока не загрузится */
+    transform: translateY(-10px);
+    transition: 0.5s ease;
+    max-width: 100%;
+}
+
+/* Когда JS подгрузит данные, мы добавим класс .visible */
+.discord_widget.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.discord_widget img {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.loading-txt { font-size: 12px; color: #ccc; }
+
+/* Анимация пульсации для статуса Live (опционально) */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(67, 181, 129, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(67, 181, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(67, 181, 129, 0); }
+}
+.border-online { animation: pulse-green 2s infinite; }
