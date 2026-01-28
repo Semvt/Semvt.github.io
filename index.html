@@ -14,9 +14,18 @@
     <header class="hero">
         <div class="container">
             <div class="profile_box">
-                <img src="avatar.jpg" alt="Avatar" class="avatar">
+                <!-- Добавил ID="avatar-img" -->
+                <img src="avatar.jpg" alt="Avatar" class="avatar" id="avatar-img">
+    
                 <h1 class="top_tit">Semvt</h1>
-                <p class="large_txt">VTuber Fan</p>
+                <p class="large_txt">Gamer, Electronics Engineer, PC Builder, VTuber Fan</p>
+    
+                <!-- СЮДА БУДЕТ ВЫВОДИТЬСЯ ИГРА ИЛИ МУЗЫКА -->
+                <div id="discord-stat-box" class="discord_widget">
+                <!-- JS сам заполнит это место -->
+                    <span class="loading-txt">Loading status...</span>
+                </div>
+
                 <div class="social-links">
                     <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-steam"></i></a>
