@@ -26,7 +26,7 @@
         </div>
     </header>
 
-    <!-- Основная секция -->
+    <!-- Основная секция (Важно: ID top_talent нужен для стилей) -->
     <section id="top_talent">
         <div class="container">
             <h2 class="top_tit">FAVORITE VTUBERS</h2>
@@ -34,15 +34,16 @@
 
         <ul class="talent_list">
 
-            <!-- 1. ERB -->
-            <li class="talent_item" onclick="this.classList.toggle('active')">
+            <!-- GURA -->
+            <li class="talent_item">
+                <!-- Картинка (добавил класс pos-gura для настройки позиции) -->
                 <figure><img src="erb.webp" alt="ERB" class="pos-gura"></figure>
 
-                <!-- Закрыто -->
+                <!-- Состояние: Закрыто -->
                 <p class="g_name" style="color: #cf2e2e;">Elizabeth Rose Bloodflame</p>
                 <p class="tl_txt">Open</p>
 
-                <!-- Открыто -->
+                <!-- Состояние: Открыто -->
                 <div class="open_box">
                     <p class="g_name_02" style="color: #cf2e2e;">Elizabeth Rose Bloodflame</p>
                     <p class="sub_txt">Hololive English -Justice-</p>
@@ -52,8 +53,7 @@
                         <a href="https://www.youtube.com/@holoen_erbloodflame" target="_blank" class="btn_primary bl">
                             <span class="txt"><i class="fab fa-youtube"></i> Channel</span>
                         </a>
-                        <!-- Исправлен href -->
-                        <a href="#" target="_blank" class="btn_primary bl">
+                        <a href="https://youtu.be/DWPzkczBQ44?si=i3hibjXM74OwDi2b" target="_blank" class="btn_primary bl">
                             <span class="txt"><i class="fab fa-youtube"></i> Clip</span>
                         </a>
                         <a href="https://x.com/ERBloodflame" target="_blank" class="btn_primary wt">
@@ -62,21 +62,25 @@
                     </div>
                 </div>
 
+                <!-- Декоративные уголки -->
                 <span class="deco d_01"></span><span class="deco d_02"></span>
                 <span class="deco d_03"></span><span class="deco d_04"></span>
+
+                <!-- Анимация фона при открытии -->
                 <div class="talent_bg_open"><span>HOLOLIVE EN</span></div>
+                <!-- Невидимая ссылка для клика (опционально, здесь используется JS для открытия) -->
                 <div class="a_open"></div> 
             </li>
 
-            <!-- 2. MINT (Была ошибка здесь) -->
-            <li class="talent_item" onclick="this.classList.toggle('active')">
+            <!-- MARINE -->
+            <li class="talent_item">
                 <figure><img src="mint.webp" alt="Mint" class="pos-marine"></figure>
 
-                <p class="g_name" style="color: #20b2aa;">Mint Fantôme</p> <!-- Поменял цвет на мятный для примера -->
+                <p class="g_name" style="color: #cf2e2e;">Hololive JP</p>
                 <p class="tl_txt">Open</p>
 
                 <div class="open_box">
-                    <p class="g_name_02" style="color: #20b2aa;">Mint Fantôme</p>
+                    <p class="g_name_02" style="color: #cf2e2e;">Mint Fantôme</p>
                     <p class="sub_txt">Densetsu.EXE</p>
                     <p class="desc">Welcome back Master, Mistress!</p>
 
@@ -84,11 +88,9 @@
                         <a href="https://www.youtube.com/@mintfantome" target="_blank" class="btn_primary bl">
                             <span class="txt"><i class="fab fa-youtube"></i> Channel</span>
                         </a>
-                        <!-- Исправлен href -->
-                        <a href="#" target="_blank" class="btn_primary bl">
+                        <a href="https://youtu.be/EAwmnsxR1Lg?si=cX9YjBYxWUwo0W18" target="_blank" class="btn_primary bl">
                             <span class="txt"><i class="fab fa-youtube"></i> Clip</span>
                         </a>
-                        <!-- БЫЛА ОШИБКА: добавлен закрывающий тег </a> -->
                         <a href="https://x.com/MintFantome" target="_blank" class="btn_primary wt">
                             <span class="txt"><i class="fab fa-twitter"></i> Twitter</span>
                         </a>
@@ -101,29 +103,26 @@
                 <div class="a_open"></div>
             </li>
 
-            <!-- 3. KRONII (Была ошибка здесь) -->
-            <li class="talent_item" onclick="this.classList.toggle('active')">
-                <figure><img src="time.png" alt="Ouro Kronii" class="pos-ina"></figure>
+            <!-- INA -->
+            <li class="talent_item">
+                <figure><img src="time.png" alt="time" class="pos-ina"></figure>
 
-                <p class="g_name" style="color: #0056b3;">Ouro Kronii</p> <!-- Поменял цвет на темно-синий -->
+                <p class="g_name" style="color: #9b51e0;">Hololive EN</p>
                 <p class="tl_txt">Open</p>
 
                 <div class="open_box">
-                    <p class="g_name_02" style="color: #0056b3;">Ouro Kronii</p>
+                    <p class="g_name_02" style="color: #9b51e0;">Ouro Kronii</p>
                     <p class="sub_txt">Hololive English -Promise-</p>
                     <p class="desc">Kroniichiwa! It's me, perfection. Also synonymous for Ouro Kronii!</p>
 
-                    <!-- БЫЛА ОШИБКА: убрал лишнюю скобку < -->
-                    <div class="btn_outwrap">
-                        <a href="https://www.youtube.com/@OuroKronii" target="_blank" class="btn_primary bl">
+                    <<div class="btn_outwrap">
+                        <a href="https://www.youtube.com/channel/UCmbs8T6MWqUHP1tIQvSgKrg" target="_blank" class="btn_primary bl">
                             <span class="txt"><i class="fab fa-youtube"></i> Channel</span>
                         </a>
-                        <!-- Исправлен href -->
-                        <a href="#" target="_blank" class="btn_primary bl">
+                        <a href="https://youtu.be/O5h6haVYSYQ?si=42b-JvbqApnOef92" target="_blank" class="btn_primary bl">
                             <span class="txt"><i class="fab fa-youtube"></i> Clip</span>
                         </a>
-                        <!-- БЫЛА ОШИБКА: добавлен закрывающий тег </a> -->
-                        <a href="https://x.com/ourokronii" target="_blank" class="btn_primary wt">
+                        <a href="https://x.com/ourokronii" class="btn_primary wt">
                             <span class="txt"><i class="fab fa-twitter"></i> Twitter</span>
                         </a>
                     </div>
@@ -138,22 +137,19 @@
         </ul>
     </section>
 
-    <!-- Скрипт (если есть внешний файл) -->
     <script src="script.js"></script>
-
-    <!-- FOOTER -->
-    <footer class="site_footer">
-        <div class="footer_inner">
-            <p class="footer_tit">SHARE PROFILE</p>
-            <div class="qr_box">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://google.com" alt="QR Link">
-            </div>
-            <p class="footer_txt">Scan to save on mobile</p>
-            
-            <div class="copy">
-                &copy; 2025 My Fav Collection. Created by Me.
-            </div>
+<!-- FOOTER / QR CODE AREA -->
+<footer class="site_footer">
+    <div class="footer_inner">
+        <p class="footer_tit">SHARE PROFILE</p>
+        <div class="qr_box">
+            <!-- Замени src на картинку своего QR кода -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://твоя-ссылка.com" alt="QR Link">
         </div>
-    </footer>    
+        <p class="footer_txt">Scan to save on mobile</p>
 
-</body>
+        <div class="copy">
+            &copy; 2025 My Fav Collection. Created by Me.
+        </div>
+    </div>
+</footer>  
