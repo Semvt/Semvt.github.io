@@ -412,81 +412,141 @@ img { max-width: 100%; height: auto; border: 0; }
 }
 .border-online { animation: pulse-green 2s infinite; }
 
-/* --- СЕКЦИЯ АРТИСТА --- */
-.fav-artist-section {
-    background-color: #f0f0f0; /* Серый фон */
+/* --- ADO SECTION STYLE --- */
+.ado-section {
+    background-color: #f4f4f4; /* Светло-серый фон как ты просил */
     padding: 100px 0;
-    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
     border-bottom: 1px solid #E4E4E4;
 }
 
-.artist-flex {
+.ado-flex {
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: 70px;
 }
 
-.artist-text { flex: 1; }
-.artist-frame { flex: 1; }
+.ado-content { flex: 1.2; z-index: 2; }
+.ado-visual { flex: 0.8; position: relative; }
 
-.deco-label {
+.ado-tag {
     font-family: var(--font-en);
-    color: var(--color-primary);
+    color: #0b124f; /* Цвет Кронии */
     font-weight: 900;
-    letter-spacing: 3px;
     text-transform: uppercase;
+    letter-spacing: 4px;
     font-size: 14px;
     margin-bottom: 10px;
-    display: block;
 }
 
-.artist-display-name {
+.ado-name {
     font-family: var(--font-en);
-    font-size: 52px;
+    font-size: 72px;
     font-weight: 900;
-    margin-bottom: 25px;
-    line-height: 1;
-}
-
-.artist-quote {
-    border-left: 4px solid var(--color-primary);
-    padding-left: 20px;
-    font-style: italic;
-    font-size: 18px;
-    color: #555;
+    color: #1a1a1a;
+    line-height: 0.9;
     margin-bottom: 30px;
 }
 
-.artist-bio {
+.blue-rose {
+    color: #27C7FF; /* Твой основной голубой */
+    font-size: 40px;
+    display: block;
+    font-family: var(--font-jp);
+}
+
+.ado-quote {
+    border-left: 5px solid #0b124f; /* Акцент Кронии */
+    padding: 10px 0 10px 25px;
+    margin-bottom: 30px;
+    background: rgba(11, 18, 79, 0.03);
+}
+
+.ado-quote p {
+    font-style: italic;
+    font-size: 20px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.ado-description {
     line-height: 1.8;
-    color: #666;
+    color: #555;
+    font-size: 16px;
     margin-bottom: 40px;
 }
 
-/* Мини-плеер под стиль сайта */
-.spotify-mini-card {
+/* Плеер в стиле Кронии */
+.ado-player {
+    background: #0b124f; /* Глубокий синий */
+    padding: 20px;
+    border-radius: 4px; /* Более острые углы для серьезности */
+    color: #fff;
+    width: fit-content;
+    min-width: 300px;
+    box-shadow: 10px 10px 0px #27C7FF; /* Голубая жесткая тень */
+}
+
+.player-inner {
     display: flex;
     align-items: center;
-    background: #fff;
-    padding: 15px 25px;
-    border-radius: 50px;
-    width: fit-content;
     gap: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.sp-icon { color: #1DB954; font-size: 24px; }
-.sp-info { display: flex; flex-direction: column; }
-.sp-track { font-weight: 900; font-family: var(--font-en); font-size: 16px; }
-.sp-artist { font-size: 12px; color: #999; }
-.sp-play { background: #222; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-left: 10px; }
+.player-inner i.fa-compact-disc {
+    font-size: 30px;
+    color: #27C7FF;
+}
 
-.artist-img-main {
+.track-meta { display: flex; flex-direction: column; }
+.now-playing { font-size: 10px; text-transform: uppercase; opacity: 0.6; letter-spacing: 1px; }
+.track-name { font-weight: bold; font-family: var(--font-en); font-size: 16px; }
+
+.ado-link {
+    margin-left: auto;
+    font-size: 24px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.ado-link:hover { color: #27C7FF; transform: rotate(15deg); }
+
+/* Фото и эффекты */
+.photo-wrapper {
+    position: relative;
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 30px 30px 0px var(--color-primary); /* Стильная жесткая тень */
 }
 
+.ado-img {
+    width: 100%;
+    filter: grayscale(20%) contrast(110%);
+    border-radius: 2px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #ddd;
+}
+
+.glow-effect {
+    position: absolute;
+    top: -20px; right: -20px; bottom: 20px; left: 20px;
+    background: #0b124f;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.photo-wrapper:hover .glow-effect {
+    background: #27C7FF;
+    transform: translate(10px, 10px);
+}
+
+/* Мобильная версия */
+@media only screen and (max-width: 768px) {
+    .ado-flex { flex-direction: column; text-align: center; }
+    .ado-name { font-size: 50px; }
+    .ado-player { margin: 0 auto; width: 100%; }
+    .ado-quote { border-left: none; border-top: 5px solid #0b124f; padding: 20px 0; }
+}
 /* --- СЕКЦИЯ ПК КАРТОЧЕК --- */
 .pc-specs-section { padding: 100px 0; background: #fff; }
 
@@ -553,10 +613,3 @@ img { max-width: 100%; height: auto; border: 0; }
 
 .ability .cost { font-size: 16px; line-height: 1; }
 .ability p { line-height: 1.4; color: #444; }
-
-/* Адаптив для артиста */
-@media only screen and (max-width: 768px) {
-    .artist-flex { flex-direction: column; text-align: center; gap: 40px; }
-    .artist-quote { border-left: none; border-top: 4px solid var(--color-primary); padding-top: 20px; padding-left: 0; }
-    .spotify-mini-card { margin: 0 auto; }
-    .artist-img-main { box-shadow: 15px 15px 0px var(--color-primary); }
