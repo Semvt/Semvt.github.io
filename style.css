@@ -677,10 +677,13 @@ img { max-width: 100%; height: auto; border: 0; }
 /*head style*/
 .section-header {
     text-align: center;
-    margin-bottom: 50px;
+     margin: 30px 0 30px 0; 
     font-family: var(--font-en);
 }
-
+/* Отдельная настройка для заголовка секции ПК */
+.pc-specs-section .section-header {
+    margin: 30px 0 30px 0; 
+}
 .sub-label {
     display: block;
     font-size: 12px;
