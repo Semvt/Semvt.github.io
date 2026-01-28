@@ -33,7 +33,7 @@ img { max-width: 100%; height: auto; border: 0; }
 
 /* --- 3. АНИМАЦИЯ ФОНА (Бегущая строка) --- */
 .txt_bg {
-    position: relative; width: 100vw; height: 10vw; display: flex; overflow: hidden; z-index: -1;
+    position: relative; width: 100vw; height: 10vw; display: flex; z-index: -1;
     color: #fff; font-family: var(--font-en); pointer-events: none; margin-bottom: -5vw; opacity: 0.1;
 }
 /* Если хотим серую полосу как в оригинале на секции талантов */
