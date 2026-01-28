@@ -85,7 +85,7 @@ img { max-width: 100%; height: auto; border: 0; }
 .pos-gura { transform: scale(1.1) translateY(33%); }
 .pos-marine { transform: scale(1.5) translateY(20%); } /* Марин чуть ниже, если есть шляпа */
 .pos-ina { transform: scale(1.2) translateY(33%); }
-
+.pos-mouse { transform: scale(1.5) translateY(20%); }
 /* --- ТЕКСТ В ЗАКРЫТОМ СОСТОЯНИИ --- */
 .talent_list li .g_name {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -178,6 +178,9 @@ img { max-width: 100%; height: auto; border: 0; }
     transform: scale(1.4) translateY(25%);
 }
 
+.talent_list li.active figure .pos-mouse {
+    transform: scale(1.4) translateY(25%);
+}
 /* Добавьте свои классы по аналогии: */
 /* .talent_list li.active figure .pos-name { ... } */
 .talent_list li.active { height: 400px; background-color: #f4fdff; }
