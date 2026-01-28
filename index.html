@@ -34,6 +34,33 @@
             </div>
         </div>
     </header>
+    <!-- ВСТАВИТЬ ПОСЛЕ </header> -->
+    <section class="fav-artist-section">
+        <div class="container artist-flex">
+            <div class="artist-text">
+                <span class="deco-label">Featured Artist</span>
+                <h2 class="artist-display-name">Hoshimachi Suisei</h2> <!-- Поменяй на своего -->
+                <div class="artist-quote">
+                    <p>«It’s not about the destination, it’s about the stardust we leave behind.»</p>
+                </div>
+                <p class="artist-bio">
+                    Her voice is a perfect blend of power and emotion. Whether it's high-energy rock or soul-crushing ballads, her music is what keeps my gears turning during late-night engineering sessions.
+                </p>
+                <!-- Плеер -->
+                <div class="spotify-mini-card">
+                    <div class="sp-icon"><i class="fab fa-spotify"></i></div>
+                    <div class="sp-info">
+                        <span class="sp-track">Stellar Stellar</span>
+                        <span class="sp-artist">Favorite Track</span>
+                    </div>
+                    <div class="sp-play"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+            <div class="artist-frame">
+                <img src="artist-photo.jpg" alt="Artist" class="artist-img-main"> <!-- Сюда фото артиста -->
+            </div>
+        </div>
+    </section>
 
     <!-- Основная секция (Важно: ID top_talent нужен для стилей) -->
     <section id="top_talent">
@@ -176,6 +203,77 @@
     </section>
 
     <script src="script.js"></script>
+
+    <section class="pc-specs-section">
+    <div class="container">
+        <h2 class="top_tit" style="text-align: center; margin-bottom: 50px;">HARDWARE DECK</h2>
+        <div class="specs-grid">
+            
+            <!-- CPU CARD -->
+            <div class="tcg-card cpu">
+                <div class="card-header">
+                    <span class="card-type">Psychic / Intel</span>
+                    <span class="card-hp">16 Core</span>
+                </div>
+                <div class="card-img-box">
+                    <img src="cpu-photo.png" alt="CPU">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-name">Core i7-13700K</h4>
+                    <div class="ability">
+                        <span class="cost">⚡⚡</span>
+                        <p><strong>Multithread Strike:</strong> Executes complex tasks with 5.4GHz precision.</p>
+                    </div>
+                    <div class="ability">
+                        <span class="cost">⚡⚡⚡</span>
+                        <p><strong>Turbo Overclock:</strong> Boosts performance but gains "Heat" status.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPU CARD -->
+            <div class="tcg-card gpu">
+                <div class="card-header">
+                    <span class="card-type">Steel / NVIDIA</span>
+                    <span class="card-hp">12GB VRAM</span>
+                </div>
+                <div class="card-img-box">
+                    <img src="gpu-photo.png" alt="GPU">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-name">RTX 4070 Ti White</h4>
+                    <div class="ability">
+                        <span class="cost">🔥⚡</span>
+                        <p><strong>Ray Tracing Beam:</strong> Illuminates the scene with realistic light photons.</p>
+                    </div>
+                    <div class="ability">
+                        <span class="cost">🔥🔥⚡</span>
+                        <p><strong>Frame Generation:</strong> Conjures extra frames out of thin air.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAM CARD -->
+            <div class="tcg-card ram">
+                <div class="card-header">
+                    <span class="card-type">Speed / DDR5</span>
+                    <span class="card-hp">32GB HP</span>
+                </div>
+                <div class="card-img-box">
+                    <img src="ram-photo.png" alt="RAM">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-name">Trident Z5 RGB</h4>
+                    <div class="ability">
+                        <span class="cost">💧</span>
+                        <p><strong>Quick Access:</strong> Instantly recalls data from the deep memory pool.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 <!-- FOOTER / QR CODE AREA -->
 <footer class="site_footer">
     <div class="footer_inner">
