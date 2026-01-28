@@ -263,26 +263,30 @@ img { max-width: 100%; height: auto; border: 0; }
         opacity: 1; 
         visibility: visible; 
         pointer-events: auto;
+        
         width: 100%; 
         left: 0; 
-        bottom: 0; 
+        bottom: 0; /* Прижимаем к самому низу */
         top: auto;
-        padding: 60px 20px 40px; 
         
-        /* ГЛАВНОЕ: меняем белый цвет в градиенте на тот самый голубой #f4fdff */
+        /* Уменьшаем нижний отступ до минимума (например, 15px или 20px) */
+        padding: 60px 20px 15px; 
+        
+        /* Градиент теперь должен начинаться прямо от края */
         background: linear-gradient(to top, 
             #f4fdff 0%, 
-            #f4fdff 75%, 
+            #f4fdff 80%, 
             rgba(244, 253, 255, 0) 100%
         ); 
         
         z-index: 20;
     }
 
-    /* Сделаем текст чуть темнее, чтобы он лучше читался на голубом фоне */
-    .open_box .desc {
-        color: #1a1a1a; 
-        font-weight: 700;
+    /* Убедимся, что у последнего элемента (кнопок) нет лишнего внешнего отступа снизу */
+    .btn_outwrap { 
+        margin-bottom: 0; 
+        padding-bottom: 5px; 
+        justify-content: center;
     }
 
     /* ... остальной код ... */
